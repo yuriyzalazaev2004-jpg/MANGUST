@@ -99,10 +99,10 @@ function setupHeroImage() {
   img.addEventListener('load', () => hero.classList.remove('image-missing'));
   img.addEventListener('error', () => {
     index += 1;
-    if (index < candidates.length) img.src = `${candidates[index]}?v=5`;
+    if (index < candidates.length) img.src = `${candidates[index]}?v=8`;
     else hero.classList.add('image-missing');
   });
-  img.src = `${candidates[0]}?v=5`;
+  img.src = `${candidates[0]}?v=8`;
 }
 
 // ===== HALL =====

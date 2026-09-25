@@ -323,31 +323,44 @@ a { color: inherit; }
 .balcony-center-row .seat-bank { min-width: 630px; justify-content: flex-start; }
 .balcony-center-row.row-3 .seat-bank { padding-left: 25px; }
 
-/* Нижний балкон выровнен по исходной схеме рассадки.
-   Ряды 5–9 имеют одинаковые опорные точки, поэтому 6–9 больше не «съезжают». */
+/* Нижний балкон — геометрия по исходной схеме.
+   Для рядов 5–11 размер мест чуть компактнее: так 22 места справа
+   помещаются без наезда на номера рядов и сохраняется проход между блоками. */
 .balcony-lower-block { width: 100%; display: flex; flex-direction: column; }
 .balcony-lower-row .row-content {
   position: relative;
   display: block;
+  width: 900px;
   height: var(--seat-size);
+}
+.balcony-lower-row .seat {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  font-size: 9px;
 }
 .balcony-lower-left,
 .balcony-lower-right {
   position: absolute;
-  top: 0;
+  top: 1px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-/* На оригинальной схеме ряды 5–10 слева начинаются на одной вертикали. */
+
+/* Ряды 5–10 слева начинаются на одной вертикали, как в оригинале. */
 .balcony-lower-left { left: 65px; }
-/* 11-й ряд слева выступает наружу. */
+/* 11-й ряд выступает влево. */
 .balcony-lower-left.row-11 { left: 20px; }
-/* Ряды 5–9: правый блок начинается в одной и той же точке. */
+
+/* Ряды 5–9: отдельный правый блок с видимым проходом после места 12. */
 .balcony-lower-right { left: 365px; }
-/* В 10–11 рядах правый блок заметно смещён вправо, как на образце. */
-.balcony-lower-right.row-10,
-.balcony-lower-right.row-11 { left: 535px; }
+
+/* 10-й ряд: большой центральный разрыв перед местом 13. */
+.balcony-lower-right.row-10 { left: 535px; }
+
+/* 11-й ряд: выступ слева и правый блок 15–31 без наезда на номер ряда. */
+.balcony-lower-right.row-11 { left: 510px; }
 
 .seat-tooltip {
   position: fixed;
