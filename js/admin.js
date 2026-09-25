@@ -164,8 +164,22 @@ loginForm?.addEventListener('submit', async e => {
     saveSession(current);
     await openDashboard(current);
   } catch (error) {
-    console.error(error);
-    loginMessage.textContent = 'Не удалось войти. Проверьте email, пароль и настройки Supabase.';
+    console.error('Supabase login error:', error);
+    const raw = String(error?.message || 'Неизвестная ошибка');
+    const lower = raw.toLowerCase();
+    let friendly = raw;
+
+    if (lower.includes('invalid login credentials')) {
+      friendly = 'Supabase отклонил email или пароль: Invalid login credentials. Проверьте пароль именно у этого нового пользователя.';
+    } else if (lower.includes('email not confirmed')) {
+      friendly = 'Email ещё не подтверждён в Supabase.';
+    } else if (lower.includes('email logins are disabled') || lower.includes('provider is disabled')) {
+      friendly = 'Вход по email отключён в Supabase Authentication → Providers → Email.';
+    } else if (lower.includes('failed to fetch') || lower.includes('network')) {
+      friendly = 'Браузер не смог связаться с Supabase. Проверьте Project URL, интернет и настройки проекта.';
+    }
+
+    loginMessage.textContent = `Ошибка Supabase: ${friendly}`;
   } finally {
     loginButton.disabled = false;
     loginButton.textContent = 'Войти';
