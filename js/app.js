@@ -194,10 +194,10 @@ function renderBalcony(root) {
   lower.className = 'balcony-lower-block';
   for (let row = 5; row <= 11; row++) {
     const cfg = BALCONY_ROWS[row];
-    const rowEl = baseRow('balcony-lower-row', row, true);
+    const rowEl = baseRow(`balcony-lower-row balcony-row-${row}`, row, true);
     const content = rowEl.querySelector('.row-content');
 
-    const left = bank(`balcony-lower-left ${row === 11 ? 'row-11' : 'standard'}`);
+    const left = bank(`balcony-lower-left row-${row}`);
     cfg.left.forEach(seat => left.appendChild(createSeat('Балкон', row, seat)));
 
     const middle = document.createElement('div');

@@ -323,17 +323,31 @@ a { color: inherit; }
 .balcony-center-row .seat-bank { min-width: 630px; justify-content: flex-start; }
 .balcony-center-row.row-3 .seat-bank { padding-left: 25px; }
 
+/* Нижний балкон выровнен по исходной схеме рассадки.
+   Ряды 5–9 имеют одинаковые опорные точки, поэтому 6–9 больше не «съезжают». */
 .balcony-lower-block { width: 100%; display: flex; flex-direction: column; }
 .balcony-lower-row .row-content {
-  display: grid;
-  grid-template-columns: 345px 70px 485px;
+  position: relative;
+  display: block;
+  height: var(--seat-size);
+}
+.balcony-lower-left,
+.balcony-lower-right {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
 }
-.balcony-lower-left { display: flex; justify-content: flex-start; }
-.balcony-lower-right { display: flex; justify-content: flex-start; }
-.balcony-lower-left.standard { padding-left: 90px; }
-.balcony-lower-left.row-11 { padding-left: 15px; }
-.balcony-lower-right.row-10, .balcony-lower-right.row-11 { padding-left: 0; }
+/* На оригинальной схеме ряды 5–10 слева начинаются на одной вертикали. */
+.balcony-lower-left { left: 65px; }
+/* 11-й ряд слева выступает наружу. */
+.balcony-lower-left.row-11 { left: 20px; }
+/* Ряды 5–9: правый блок начинается в одной и той же точке. */
+.balcony-lower-right { left: 365px; }
+/* В 10–11 рядах правый блок заметно смещён вправо, как на образце. */
+.balcony-lower-right.row-10,
+.balcony-lower-right.row-11 { left: 535px; }
 
 .seat-tooltip {
   position: fixed;
