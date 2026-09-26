@@ -6,16 +6,17 @@
   <title>Добровольцы — Благотворительный концерт</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=8">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=12">
 </head>
 <body>
   <nav class="navbar">
     <div class="nav-container">
       <a class="logo" href="#top">ДОБРОВОЛЬЦЫ</a>
       <ul class="nav-links" id="navLinks">
+        <li><a href="#program">Программа</a></li>
         <li><a href="#hall">Схема зала</a></li>
-        <li><a class="nav-donate" href="https://www.donationalerts.com/r/kinsem_darkdressed" target="_blank" rel="noopener noreferrer">Пожертвовать</a></li>
+        <li><a class="nav-donate" href="https://www.donationalerts.com/r/kinsem_darkdressed" target="_blank" rel="noopener noreferrer">Пожертвование</a></li>
         <li><a href="admin.html">Организаторам</a></li>
       </ul>
       <button class="nav-burger" id="burger" type="button" aria-label="Открыть меню" aria-controls="navLinks" aria-expanded="false">☰</button>
@@ -24,115 +25,123 @@
 
   <main id="top">
     <section class="hero">
-      <div class="hero-media" aria-hidden="true">
-        <img id="heroImage" src="images/hero-example.jpg?v=5" alt="">
-      </div>
+      <div class="hero-media" aria-hidden="true"><img id="heroImage" src="images/hero.jpg?v=12" alt=""></div>
       <div class="hero-overlay"></div>
       <div class="hero-inner">
         <div class="hero-content">
           <p class="hero-subtitle">Твори добро</p>
           <h1 class="hero-title">Концерт<br>во имя тех,<br>кто защищает</h1>
-          <p class="hero-desc">Благотворительный концерт, приуроченный ко Дню волонтёра и добровольца</p>
+          <p class="hero-desc">Благотворительный концерт, посвящённый добровольцам, волонтёрам и людям, которые помогают другим.</p>
           <div class="hero-actions">
             <a class="btn-primary" href="#hall">Выбрать место</a>
-            <a class="btn-donate-hero" href="https://www.donationalerts.com/r/kinsem_darkdressed" target="_blank" rel="noopener noreferrer">Пожертвовать добровольно ❤️</a>
+            <a class="btn-donate-hero" href="https://www.donationalerts.com/r/kinsem_darkdressed" target="_blank" rel="noopener noreferrer">Пожертвование</a>
           </div>
-          <p class="donation-caption">Пожертвование добровольное и никак не влияет на бронирование.</p>
+          <p class="donation-caption">Мы будем благодарны, если поддержите наш концерт. Пожертвование добровольное.</p>
         </div>
       </div>
-      <div class="hero-date-badge">
-        <span class="date-number">3</span>
-        <span class="date-month">декабря</span>
+      <div class="hero-date-badge"><span class="date-number">3</span><span class="date-month">декабря</span></div>
+    </section>
+
+    <section class="intro-section">
+      <div class="intro-grid">
+        <div>
+          <p class="eyebrow">Место встречи</p>
+          <h2>ДК «Подмосковье»</h2>
+          <p class="address">Красногорск, Ленина, дом 3</p>
+        </div>
+        <div class="intro-note">
+          <span class="note-time">18:00 — 20:30</span>
+          <p>Вечер музыки, благодарности, встреч и поддержки.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="program-section" id="program">
+      <div class="section-head left-head">
+        <p class="eyebrow">Вечер мероприятия</p>
+        <h2 class="section-title">Программа</h2>
+        <p class="section-subtitle">Время и отдельные детали программы могут уточняться организаторами.</p>
+      </div>
+      <div class="program-list">
+        <article class="program-item"><time>18:00</time><div><h3>Фото выставка «Свет души моей»</h3><p>Описание выставки будет добавлено после передачи материалов.</p></div></article>
+        <article class="program-item"><time>19:00</time><div><h3>Концерт</h3><p>Выступление приглашённых артистов и творческих коллективов.</p></div></article>
+        <article class="program-item"><time>19:00+</time><div><h3>Саша Потапова</h3><p>Выступление группы.</p></div></article>
+        <article class="program-item"><time>19:00+</time><div><h3>Светлана Ларионова</h3><p>Выступление певицы.</p></div></article>
+        <article class="program-item"><time>19:00+</time><div><h3>Творческий коллектив из матерей бойцов</h3><p>Специальное выступление.</p></div></article>
+        <article class="program-item"><time>—</time><div><h3>Награждение волонтёров</h3><p>Благодарность людям, которые помогают другим.</p></div></article>
+        <article class="program-item"><time>—</time><div><h3>Аукцион</h3><p>Подробности будут опубликованы дополнительно.</p></div></article>
+        <article class="program-item program-end"><time>20:30</time><div><h3>Окончание мероприятия</h3></div></article>
+      </div>
+    </section>
+
+    <section class="support-section" id="support">
+      <div class="section-head left-head">
+        <p class="eyebrow">Что будет предусмотрено</p>
+        <h2 class="section-title">Пространство для важных людей и дел</h2>
+      </div>
+      <div class="support-grid">
+        <article><span>01</span><h3>Заявленные артисты</h3><p>Саша Потапова и Светлана Ларионова уже указаны в программе. Дополнительные участники будут добавляться по мере подтверждения.</p></article>
+        <article><span>02</span><h3>Почётные гости</h3><p>Раздел оставлен для подтверждённых гостей. Имена появятся после согласования.</p></article>
+        <article><span>03</span><h3>Спонсоры и партнёры</h3><p>Здесь будут размещены названия и логотипы партнёров мероприятия.</p></article>
+        <article><span>04</span><h3>Для кого помощь и на какие нужды</h3><p>Информация будет добавлена после уточнения направления помощи.</p></article>
+        <article><span>05</span><h3>Пункт сбора гуманитарной помощи</h3><p>Место и список необходимого будут объявлены отдельно. Возможен сбор материалов для маскировочных сетей и другой гуманитарной помощи.</p></article>
       </div>
     </section>
 
     <section class="hall-section" id="hall">
       <div class="section-head">
+        <p class="eyebrow">Выберите своё место</p>
         <h2 class="section-title">Схема зала</h2>
-        <p class="section-subtitle">Нажмите на свободное место, чтобы выбрать его</p>
+        <p class="section-subtitle">Нажмите на свободное место. Занятые места видны всем посетителям.</p>
       </div>
-
       <div class="hall-legend" aria-label="Обозначения схемы">
         <span><i class="legend-seat available"></i>Свободно</span>
         <span><i class="legend-seat selected"></i>Выбрано</span>
         <span><i class="legend-seat booked"></i>Занято</span>
       </div>
-
-      <div class="hall-wrapper">
-        <div class="hall-container" id="hallContainer">
-          <div class="stage-label">СЦЕНА</div>
-          <div class="stage-bar"></div>
-          <div class="hall-floor" id="hallFloor"></div>
-          <div class="balcony-label">БАЛКОН</div>
-          <div class="hall-balcony" id="hallBalcony"></div>
-        </div>
-      </div>
+      <div class="hall-wrapper"><div class="hall-container" id="hallContainer">
+        <div class="stage-label">СЦЕНА</div><div class="stage-bar"></div>
+        <div class="hall-floor" id="hallFloor"></div>
+        <div class="balcony-label">БАЛКОН</div>
+        <div class="hall-balcony" id="hallBalcony"></div>
+      </div></div>
       <button class="btn-zoom" id="btnZoom" type="button">Увеличить схему</button>
     </section>
 
     <section class="selected-panel" id="selectedPanel">
       <div class="selected-panel-inner">
-        <div class="selected-list">
-          <h3>Выбранные места</h3>
-          <div id="selectedSeatsList"></div>
-        </div>
+        <div class="selected-list"><h3>Выбранные места</h3><div id="selectedSeatsList"></div></div>
         <button class="btn-book" id="btnBook" type="button" disabled>Забронировать</button>
         <div class="booking-note">Бронирование бесплатное</div>
       </div>
     </section>
+
+    <section class="donation-section" id="donation">
+      <div class="donation-card">
+        <div><p class="eyebrow">Поддержка</p><h2>Мы будем благодарны, если поддержите наш концерт</h2><p>Пожертвование добровольное и не влияет на возможность выбрать или забронировать место.</p></div>
+        <a class="donation-button" href="https://www.donationalerts.com/r/kinsem_darkdressed" target="_blank" rel="noopener noreferrer">Пожертвование</a>
+      </div>
+    </section>
   </main>
 
-  <div class="modal-overlay" id="modalRegister" aria-hidden="true">
-    <div class="modal modal-register" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
-      <button class="modal-close" id="closeRegister" type="button" aria-label="Закрыть">&times;</button>
-      <div class="modal-header">
-        <h2 id="registerTitle">Бронирование места</h2>
-        <p>Заполните данные для подтверждения брони</p>
-      </div>
-      <form id="bookingForm">
-        <div class="form-group">
-          <label for="fullName">ФИО *</label>
-          <input type="text" id="fullName" required autocomplete="name" placeholder="Иванов Иван Иванович">
-        </div>
-        <div class="form-group">
-          <label for="phone">Номер телефона *</label>
-          <input type="tel" id="phone" required autocomplete="tel" placeholder="+7 (___) ___-__-__">
-        </div>
-        <div class="form-group">
-          <label for="email">Электронная почта *</label>
-          <input type="email" id="email" required autocomplete="email" placeholder="example@mail.ru">
-        </div>
-        <div class="form-seats-info" id="formSeatsInfo"></div>
-        <button type="submit" class="btn-submit">Забронировать</button>
-      </form>
-    </div>
-  </div>
+  <div class="modal-overlay" id="modalRegister" aria-hidden="true"><div class="modal modal-register" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
+    <button class="modal-close" id="closeRegister" type="button" aria-label="Закрыть">&times;</button>
+    <div class="modal-header"><h2 id="registerTitle">Бронирование места</h2><p>Заполните данные для подтверждения брони</p></div>
+    <form id="bookingForm">
+      <div class="form-group"><label for="fullName">ФИО *</label><input type="text" id="fullName" required autocomplete="name" placeholder="Иванов Иван Иванович"></div>
+      <div class="form-group"><label for="phone">Номер телефона *</label><input type="tel" id="phone" required autocomplete="tel" placeholder="+7 (___) ___-__-__"></div>
+      <div class="form-group"><label for="email">Электронная почта *</label><input type="email" id="email" required autocomplete="email" placeholder="example@mail.ru"></div>
+      <div class="form-seats-info" id="formSeatsInfo"></div>
+      <button type="submit" class="btn-submit">Забронировать</button>
+    </form>
+  </div></div>
 
-  <div class="modal-overlay" id="modalSuccess" aria-hidden="true">
-    <div class="modal modal-success" role="dialog" aria-modal="true" aria-labelledby="successTitle">
-      <button class="modal-close" id="closeSuccess" type="button" aria-label="Закрыть">&times;</button>
-      <div class="success-icon">✓</div>
-      <h2 id="successTitle">Место забронировано!</h2>
-      <p id="successMessage"></p>
-      <div class="success-donation-prompt">
-        <p>Если хотите, концерт можно поддержать добровольным пожертвованием.</p>
-        <a class="btn-donate-after" href="https://www.donationalerts.com/r/kinsem_darkdressed" target="_blank" rel="noopener noreferrer">Поддержать добровольно ❤️</a>
-        <button class="btn-skip" id="btnSkipDonation" type="button">Закрыть</button>
-      </div>
-    </div>
-  </div>
+  <div class="modal-overlay" id="modalSuccess" aria-hidden="true"><div class="modal modal-success" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+    <button class="modal-close" id="closeSuccess" type="button" aria-label="Закрыть">&times;</button><div class="success-icon">✓</div><h2 id="successTitle">Место забронировано!</h2><p id="successMessage"></p>
+    <div class="success-donation-prompt"><p>Мы будем благодарны, если поддержите наш концерт.</p><a class="btn-donate-after" href="https://www.donationalerts.com/r/kinsem_darkdressed" target="_blank" rel="noopener noreferrer">Пожертвование</a><button class="btn-skip" id="btnSkipDonation" type="button">Закрыть</button></div>
+  </div></div>
 
-  <footer class="footer">
-    <div class="footer-minimal">
-      <div>
-        <strong>ДОБРОВОЛЬЦЫ</strong>
-        <span>Благотворительный концерт</span>
-      </div>
-      <a href="admin.html">Организаторам</a>
-    </div>
-  </footer>
-
-  <script src="js/config.js?v=8"></script>
-  <script src="js/app.js?v=8"></script>
+  <footer class="footer"><div class="footer-minimal"><div><strong>ДОБРОВОЛЬЦЫ</strong><span>ДК «Подмосковье» · Красногорск, Ленина, дом 3</span></div><a href="admin.html">Организаторам</a></div></footer>
+  <script src="js/config.js?v=12"></script><script src="js/app.js?v=12"></script>
 </body>
 </html>
