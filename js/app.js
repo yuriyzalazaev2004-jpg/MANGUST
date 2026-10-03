@@ -521,3 +521,10 @@ function formatPhone(e) {
 function escapeHtml(value) {
   return String(value ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');
 }
+
+// Visual portrait fallbacks: real client photos can be added later without broken-image icons.
+document.querySelectorAll('.artist-photo img, .guest-photo img').forEach((img) => {
+  img.addEventListener('error', () => {
+    img.style.display = 'none';
+  }, { once: true });
+});
