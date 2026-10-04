@@ -1,10 +1,1 @@
-ФОТО АРТИСТОВ
-
-Добавьте сюда:
-- sasha-potapova.jpg
-- svetlana-larionova.jpg
-
-Рекомендуемый размер: 900 × 900 px.
-Формат: JPG или WEBP.
-Композиция: квадратный портрет, лицо не обрезать по макушке и подбородку.
-На сайте фото автоматически показываются в круглых рамках.
+Фото артистов: 900x900 px, JPG/WebP. Файлы: sasha-potapova.jpg, svetlana-larionova.jpg, artem-levashov.jpg, ulyana-karakoz.jpg
