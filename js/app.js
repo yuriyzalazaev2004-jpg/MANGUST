@@ -289,6 +289,9 @@ function updateSelectedPanel() {
     list.appendChild(tag);
   });
   btn.disabled = selectedSeats.length === 0;
+  document.getElementById('selectedPanel')?.classList.toggle('has-seats', selectedSeats.length > 0);
+  const heading = document.querySelector('.selected-list h3');
+  if (heading) heading.textContent = selectedSeats.length ? `Выбранные места (${selectedSeats.length})` : 'Выбранные места';
 }
 
 function removeSelectedSeat(index) {
@@ -491,4 +494,17 @@ async function sendContactMessage(e) {
   status.textContent='Сообщение отправлено организаторам.';form.reset();
  } catch(err){status.textContent='Не удалось отправить: '+err.message+' (проверьте SQL-настройку).';}
  finally{button.disabled=false;}
+}
+
+// Mobile sector navigation: the desktop diagram remains unchanged.
+document.querySelectorAll('[data-hall-sector]').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('[data-hall-sector]').forEach(t => t.classList.toggle('active', t === tab));
+    document.getElementById('hallContainer')?.setAttribute('data-mobile-sector', tab.dataset.hallSector);
+    const wrapper = document.querySelector('.hall-wrapper');
+    if (wrapper) wrapper.scrollLeft = 0;
+  });
+});
+if (window.matchMedia('(max-width: 760px)').matches) {
+  document.getElementById('hallContainer')?.setAttribute('data-mobile-sector', 'parterre');
 }
