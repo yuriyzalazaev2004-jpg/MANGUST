@@ -694,3 +694,30 @@ body { background: radial-gradient(ellipse at top, #2a1909 0%, #120d08 60%); col
   .hero-title { font-size: 40px; }
   .hero-date-badge { width: 68px; height: 68px; }
 }
+
+/* Новая схема зала: партер, амфитеатр и бельэтаж по примеру пользователя. */
+.hall-container { width: 100%; min-width: 1080px; max-width: 1480px; padding: 20px 18px 28px; border-radius: 2px; background: #fff; color: #171717; box-shadow: none; }
+.hall-wrapper { width: 100%; max-width: 1500px; }
+.stage-label { color: #171717; border: 1px solid #aaa; font-family: Georgia,serif; font-size: 30px; font-weight: 400; letter-spacing: 0; width: 72%; margin: 0 auto 10px; padding: 2px; text-align: center; }
+.stage-bar { display: none; }
+.seat-section { width: 100%; margin: 10px auto 22px; }
+.seat-section h3 { text-align: center; font: 26px Georgia,serif; color: #171717; margin: 6px 0 10px; }
+.diagram-row { display: grid; grid-template-columns: minmax(0,1fr) 34px minmax(0,1fr); align-items: center; justify-content: center; gap: 8px; min-height: 27px; margin: 3px auto; width: max-content; max-width: 100%; }
+.diagram-bank { display: flex; align-items: center; gap: 4px; }
+.left-bank { justify-content: flex-end; }
+.right-bank { justify-content: flex-start; }
+.diagram-row-number { text-align: center; font: 16px Georgia,serif; color: #171717; }
+.seat { width: 25px; height: 25px; flex: 0 0 25px; border-radius: 0; font: 14px Georgia,serif; color: #fff; border: 1px solid rgba(0,0,0,.25); }
+.seat-purple.seat-available { background: #a65b99; color: #fff; }
+.seat-green.seat-available { background: #4d970d; color: #fff; }
+.seat-selected { background: #e99b18 !important; color: #fff !important; }
+.seat-booked { background: #777 !important; color: #fff !important; opacity: .85; }
+.amphi-side-wings { display: flex; justify-content: space-between; align-items: center; gap: 20px; width: 100%; margin: -140px auto 10px; pointer-events: none; }
+.wing { display: flex; flex-direction: column; gap: 8px; width: 220px; }
+.wing-line { display: flex; gap: 5px; }
+.wing-left .wing-line { justify-content: flex-start; }
+.wing-right .wing-line { justify-content: flex-end; }
+.wing .seat { pointer-events: auto; }
+.bel-etage-section { margin-top: 100px; }
+.bel-etage-section .diagram-row { margin-top: 10px; }
+@media (max-width: 700px) { .hall-container { min-width: 1080px; } .hall-wrapper { overflow-x: auto; } }

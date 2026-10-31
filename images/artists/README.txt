@@ -1,1 +1,4 @@
-Фото артистов: 900x900 px, JPG/WebP. Файлы: sasha-potapova.jpg, svetlana-larionova.jpg, artem-levashov.jpg, ulyana-karakoz.jpg
+Фото группы «Жариков»
+Имя файла: zharkov-group.jpg
+Путь относительно корня сайта: images/artists/zharkov-group.jpg
+Формат: JPG. Карточка на странице уже ссылается на этот путь.

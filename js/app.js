@@ -37,33 +37,25 @@ async function supabaseFetch(path, options = {}) {
   return text ? JSON.parse(text) : null;
 }
 
-// Рассадка перенесена с предоставленной пользователем схемы.
-const FLOOR_ROWS = {
-  1:  { left: range(1,14), right: range(15,28) },
-  2:  { left: range(1,15), right: range(16,30) },
-  3:  { left: range(1,15), right: range(16,30) },
-  4:  { left: range(1,16), right: range(17,32) },
-  5:  { left: range(1,16), right: range(17,32) },
-  6:  { left: range(1,16), right: range(17,32) },
-  7:  { left: range(1,17), right: range(18,34) },
-  8:  { left: range(1,17), right: range(18,34) },
-  9:  { left: range(1,17), right: range(18,34) },
-  10: { left: range(1,17), right: range(18,29), pult: true }
-};
-
-const BALCONY_ROWS = {
-  1:  { left: range(1,9),   center: range(10,34), right: range(35,43) },
-  2:  { left: range(1,9),   center: range(10,34), right: range(35,43) },
-  3:  { left: range(1,10),  center: range(11,35), right: range(36,45) },
-  4:  { left: range(1,7),   center: [],           right: range(8,14) },
-  5:  { left: range(1,12),  right: range(13,33) },
-  6:  { left: range(1,12),  right: range(13,34) },
-  7:  { left: range(1,12),  right: range(13,34) },
-  8:  { left: range(1,12),  right: range(13,34) },
-  9:  { left: range(1,12),  right: range(13,34) },
-  10: { left: range(1,12),  right: range(13,27) },
-  11: { left: range(1,14),  right: range(15,31) }
-};
+// Геометрия рассадки по новой схеме пользователя.
+const HALL_SECTIONS = [
+  { id: 'ПАРТЕР', title: 'ПАРТЕР', color: 'purple', rows: [
+    { row: -1, left: 16, right: 16 }, { row: -2, left: 17, right: 17 },
+    { row: -3, left: 19, right: 18 }, { row: -4, left: 19, right: 18 },
+    { row: -5, left: 20, right: 19 }, { row: -6, left: 20, right: 19 }
+  ]},
+  { id: 'АМФИТЕАТР', title: 'АМФИТЕАТР', color: 'purple', rows: [
+    { row: -1, left: 18, right: 17 }, { row: -2, left: 19, right: 18 },
+    { row: -3, left: 13, right: 13 }, { row: -4, left: 13, right: 12 },
+    { row: -5, left: 12, right: 11 }, { row: -6, left: 10, right: 10 },
+    { row: -7, left: 8, right: 8 }
+  ]},
+  { id: 'БЕЛЬЭТАЖ', title: 'БЕЛЬЭТАЖ', color: 'green', rows: [
+    { row: -1, left: 0, right: 0, seats: [20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1] },
+    { row: -2, left: 0, right: 0, seats: [20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1] },
+    { row: -3, left: 0, right: 0, seats: [7,6,5,4,3,2,1] }
+  ]}
+];
 
 function range(from, to) {
   return Array.from({ length: to - from + 1 }, (_, i) => from + i);
@@ -112,103 +104,63 @@ function renderHall() {
   if (!floor || !balcony) return;
   floor.innerHTML = '';
   balcony.innerHTML = '';
+  const parterre = document.createElement('section');
+  parterre.className = 'seat-section parterre-section';
+  parterre.innerHTML = '<h3>ПАРТЕР</h3>';
+  HALL_SECTIONS[0].rows.forEach(cfg => parterre.appendChild(createSplitSeatRow('ПАРТЕР', cfg, 'purple')));
+  floor.appendChild(parterre);
 
-  // Ряды 1–10 у сцены.
-  for (let row = 1; row <= 10; row++) {
-    const cfg = FLOOR_ROWS[row];
-    const rowEl = baseRow('stage-row', row, true);
-    const content = rowEl.querySelector('.row-content');
+  const amphitheater = document.createElement('section');
+  amphitheater.className = 'seat-section amphitheater-section';
+  amphitheater.innerHTML = '<h3>АМФИТЕАТР</h3>';
+  HALL_SECTIONS[1].rows.forEach(cfg => amphitheater.appendChild(createSplitSeatRow('АМФИТЕАТР', cfg, 'purple')));
+  floor.appendChild(amphitheater);
 
-    const left = bank('seat-bank stage-left-bank');
-    cfg.left.forEach(seat => left.appendChild(createSeat('Сцена', row, seat)));
-
-    const gap = document.createElement('div');
-    gap.className = 'stage-center-gap';
-
-    const right = bank('seat-bank stage-right-bank');
-    if (cfg.pult) {
-      const pult = document.createElement('div');
-      pult.className = 'pult-inline';
-      pult.textContent = 'ПУЛЬТ';
-      right.appendChild(pult);
-    }
-    cfg.right.forEach(seat => right.appendChild(createSeat('Сцена', row, seat)));
-
-    content.append(left, gap, right);
-    floor.appendChild(rowEl);
-  }
-
-  // Ряды 11–19 — сплошные 1–36, как на схеме.
-  for (let row = 11; row <= 19; row++) {
-    const rowEl = baseRow('lower-row', row, true);
-    const content = rowEl.querySelector('.row-content');
-    const full = bank('seat-bank');
-    range(1,36).forEach(seat => full.appendChild(createSeat('Зал', row, seat)));
-    content.appendChild(full);
-    floor.appendChild(rowEl);
-  }
-
-  renderBalcony(balcony);
+  const balconySection = document.createElement('section');
+  balconySection.className = 'seat-section bel-etage-section';
+  balconySection.innerHTML = '<h3>БЕЛЬЭТАЖ</h3>';
+  HALL_SECTIONS[2].rows.forEach(cfg => balconySection.appendChild(createSplitSeatRow('БЕЛЬЭТАЖ', cfg, 'green')));
+  balcony.appendChild(balconySection);
+  renderAmphiSideWings(floor);
 }
 
-function renderBalcony(root) {
-  const upper = document.createElement('div');
-  upper.className = 'balcony-upper-wings';
-
-  // Верхние боковые части балкона: ряды 1–4.
-  for (let row = 1; row <= 4; row++) {
-    const cfg = BALCONY_ROWS[row];
-    const rowEl = baseRow('balcony-wing-row', row, true);
-    const content = rowEl.querySelector('.row-content');
-
-    const left = bank(`balcony-wing-left ${row === 2 ? 'indent-1' : row === 3 ? 'indent-2' : row === 4 ? 'indent-3' : ''}`);
-    cfg.left.forEach(seat => left.appendChild(createSeat('Балкон', row, seat)));
-
-    const middle = document.createElement('div');
-
-    const right = bank(`balcony-wing-right ${row >= 3 ? 'shift-left' : ''}`);
-    cfg.right.forEach(seat => right.appendChild(createSeat('Балкон', row, seat)));
-
-    content.append(left, middle, right);
-    upper.appendChild(rowEl);
+function createSplitSeatRow(sector, cfg, color) {
+  const row = document.createElement('div');
+  row.className = `diagram-row ${color}`;
+  const left = document.createElement('div'); left.className = 'diagram-bank left-bank';
+  const right = document.createElement('div'); right.className = 'diagram-bank right-bank';
+  const center = document.createElement('span'); center.className = 'diagram-row-number'; center.textContent = cfg.row;
+  if (cfg.seats) {
+    cfg.seats.forEach(n => left.appendChild(createDiagramSeat(sector, cfg.row, n, color)));
+  } else {
+    for (let n = cfg.left + cfg.right; n > cfg.right; n--) left.appendChild(createDiagramSeat(sector, cfg.row, n, color));
+    for (let n = cfg.right; n >= 1; n--) right.appendChild(createDiagramSeat(sector, cfg.row, n, color));
   }
-  root.appendChild(upper);
+  row.append(left, center, right);
+  return row;
+}
 
-  // Центральная часть балкона: ряды 1–3, места 10/11–34/35.
-  const center = document.createElement('div');
-  center.className = 'balcony-center-block';
-  for (let row = 1; row <= 3; row++) {
-    const cfg = BALCONY_ROWS[row];
-    const rowEl = document.createElement('div');
-    rowEl.className = `balcony-center-row row-${row}`;
-    rowEl.appendChild(createRowNumber(row));
-    const seats = bank('seat-bank');
-    cfg.center.forEach(seat => seats.appendChild(createSeat('Балкон', row, seat)));
-    rowEl.appendChild(seats);
-    center.appendChild(rowEl);
-  }
-  root.appendChild(center);
+function createDiagramSeat(sector, row, seat, color) {
+  const el = createSeat(sector, row, seat);
+  el.classList.add(`seat-${color}`);
+  return el;
+}
 
-  // Нижняя часть балкона: ряды 5–11.
-  const lower = document.createElement('div');
-  lower.className = 'balcony-lower-block';
-  for (let row = 5; row <= 11; row++) {
-    const cfg = BALCONY_ROWS[row];
-    const rowEl = baseRow(`balcony-lower-row balcony-row-${row}`, row, true);
-    const content = rowEl.querySelector('.row-content');
-
-    const left = bank(`balcony-lower-left row-${row}`);
-    cfg.left.forEach(seat => left.appendChild(createSeat('Балкон', row, seat)));
-
-    const middle = document.createElement('div');
-
-    const right = bank(`balcony-lower-right row-${row}`);
-    cfg.right.forEach(seat => right.appendChild(createSeat('Балкон', row, seat)));
-
-    content.append(left, middle, right);
-    lower.appendChild(rowEl);
-  }
-  root.appendChild(lower);
+function renderAmphiSideWings(root) {
+  const wings = document.createElement('div');
+  wings.className = 'amphi-side-wings';
+  const left = [[40,39,38,37],[36,35,34,33,32],[40,39,38],[37,36,35,34,33,32,31],[30,29,28,27,26,25,24,23,22,21]];
+  const right = [[4,3,2,1],[5,4,3,2,1],[6,5,4,3,2,1],[8,7,6,5,4],[9,8,7,6,5,4,3,2,1]];
+  [left,right].forEach((side, sideIndex) => {
+    const col = document.createElement('div'); col.className = sideIndex ? 'wing wing-right' : 'wing wing-left';
+    side.forEach((nums, idx) => {
+      const line = document.createElement('div'); line.className = 'wing-line';
+      nums.forEach(n => line.appendChild(createDiagramSeat('АМФИТЕАТР-БОКОВЫЕ', -(idx + 1), n, 'green')));
+      col.appendChild(line);
+    });
+    wings.appendChild(col);
+  });
+  root.appendChild(wings);
 }
 
 function baseRow(className, row, rightNumber = true) {
