@@ -885,3 +885,14 @@ input,textarea,select{accent-color:#ad7130}button,a{transition:background-color 
  #selectedSeatsList{max-height:none!important;overflow:visible!important}
 }
 @media(prefers-reduced-motion:reduce){.hero .btn-donate-hero,.donation-button{animation:none!important}}
+
+/* DaBro: partner logos and donation button refresh */
+.partner-placeholders { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; align-items:center; }
+.partner-placeholders .partner-logo { min-height:140px; padding:18px; display:flex; align-items:center; justify-content:center; background:#fff9ef; border:1px solid #d7ba86; border-radius:20px; box-shadow:0 8px 24px rgba(63,38,16,.10); }
+.partner-placeholders .partner-logo img { display:block; width:100%; max-width:160px; height:128px; object-fit:contain; }
+.dabro-support-glow, a.dabro-support-glow { position:relative; isolation:isolate; display:inline-flex; justify-content:center; align-items:center; min-height:52px; padding:14px 28px; border:1px solid #ffe2a0; border-radius:999px; color:#392008!important; font-weight:800; text-decoration:none; background:linear-gradient(115deg,#bb7626 0%,#f4c76f 30%,#ffe9ac 50%,#d9952f 75%,#a86519 100%); background-size:200% 100%; box-shadow:0 5px 16px rgba(158,98,22,.35),0 0 18px rgba(255,192,70,.36),inset 0 1px 0 rgba(255,255,255,.7); animation:dabro-gold-pulse 2.6s ease-in-out infinite,dabro-gold-shine 5s linear infinite; transition:transform .2s ease,filter .2s ease; }
+.dabro-support-glow:hover { transform:translateY(-2px); filter:brightness(1.07); }
+@keyframes dabro-gold-pulse { 0%,100% {box-shadow:0 5px 16px rgba(158,98,22,.3),0 0 12px rgba(255,192,70,.25)} 50% {box-shadow:0 8px 25px rgba(158,98,22,.42),0 0 32px rgba(255,193,75,.75),0 0 52px rgba(255,193,75,.25)} }
+@keyframes dabro-gold-shine {0%{background-position:100% 50%}100%{background-position:-100% 50%}}
+@media(max-width:600px){.partner-placeholders {gap:12px}.partner-placeholders .partner-logo{min-height:120px;padding:10px}.partner-placeholders .partner-logo img{height:105px}.dabro-support-glow{min-height:54px}}
+@media(prefers-reduced-motion:reduce){.dabro-support-glow{animation:none}}
