@@ -267,3 +267,7 @@ body{color:#352416!important;background:radial-gradient(circle at 90% 0%,#f5e2bd
 .invite-map-seat.is-occupied{background:#929292!important;color:#fff!important;border-color:#929292!important;cursor:not-allowed}
 .invite-map-seat:focus-visible{outline:3px solid #ba792b;outline-offset:2px}
 #inviteSeatSummary{margin:12px 0 0;overflow-wrap:anywhere}
+
+/* Improved contrast of labels in invitation seat map */
+.invite-seat-map h3,.invite-map-row-number{color:#56351c!important;opacity:1!important;font-weight:800!important;}
+.invite-map-seat{color:#392617!important;background:#f4dfbc!important;border-color:#a77a44!important;font-weight:700!important;}

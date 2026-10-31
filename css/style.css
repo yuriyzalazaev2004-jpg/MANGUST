@@ -906,3 +906,49 @@ input,textarea,select{accent-color:#ad7130}button,a{transition:background-color 
 @keyframes dabro-premium-breathe{0%,100%{transform:scale(1);box-shadow:0 5px 18px rgba(162,108,38,.25),0 0 9px rgba(241,194,103,.22)}50%{transform:scale(1.045);box-shadow:0 8px 25px rgba(162,108,38,.35),0 0 25px rgba(248,197,91,.65),0 0 42px rgba(248,197,91,.28)}}
 @media(max-width:700px){.organizers-card{grid-template-columns:1fr!important}.partner-placeholders .partner-logo{width:112px!important;height:112px!important}.partner-placeholders{justify-content:center!important}.dabro-support-glow,a.dabro-support-glow{max-width:100%}}
 @media(prefers-reduced-motion:reduce){.dabro-support-glow,a.dabro-support-glow{animation:none!important}}
+
+/* ДаБро: November contrast, transparent partner logo mounts, unified glowing CTA */
+.hall-container .seat-section h3,
+.hall-container .diagram-row-number,
+.hall-container .seat-section .diagram-row-number {
+ color:#633c1f!important; opacity:1!important; text-shadow:none!important;
+ font-weight:800!important;
+}
+.hall-container .diagram-row-number {font-family:Arial,sans-serif!important;font-size:15px!important;}
+.hall-container .seat {font-weight:700!important;}
+.hall-container .seat-available {color:#422814!important;background:#f4dfbc!important;border-color:#ae7c41!important;}
+.hall-container .seat-booked {color:#fff!important;background:#6e737b!important;}
+.hall-container .seat-selected {color:#fff!important;background:#bd2335!important;}
+.partner-placeholders .partner-logo,
+.organizers-card .partner-placeholders .partner-logo {
+ background:transparent!important; border:0!important; box-shadow:none!important;
+ padding:0!important; border-radius:0!important;
+}
+.partner-placeholders .partner-logo img {background:transparent!important;object-fit:contain!important;}
+/* One appearance for top and bottom support links; animation never stops except reduced motion */
+.hero .btn-donate-hero.dabro-support-glow,
+.donation-button.dabro-support-glow,
+a.dabro-support-glow {
+ display:inline-flex!important; align-items:center!important;justify-content:center!important;
+ position:relative!important; isolation:isolate!important;
+ color:#fff9e8!important; font-weight:800!important; text-shadow:0 1px 2px rgba(48,25,8,.32)!important;
+ background:linear-gradient(115deg,#73441e 0%,#a96b2e 30%,#c89446 52%,#9c612a 78%,#73441e 100%)!important;
+ background-size:100% 100%!important; border:1px solid #e2b76a!important;
+ border-radius:999px!important; min-height:52px!important; padding:13px 27px!important;
+ box-shadow:0 5px 16px rgba(90,53,17,.24),0 0 14px rgba(222,171,78,.35)!important;
+ animation:dabro-support-heartbeat 2.1s ease-in-out infinite!important;
+ transform-origin:center!important; will-change:transform,box-shadow!important;
+}
+@keyframes dabro-support-heartbeat {
+ 0%,100% {transform:scale(1);box-shadow:0 5px 16px rgba(90,53,17,.24),0 0 12px rgba(222,171,78,.3);}
+ 35% {transform:scale(1.045);box-shadow:0 7px 22px rgba(90,53,17,.30),0 0 25px rgba(242,186,78,.65),0 0 42px rgba(242,186,78,.2);}
+ 55% {transform:scale(1.015);box-shadow:0 6px 18px rgba(90,53,17,.27),0 0 18px rgba(242,186,78,.42);}
+ 72% {transform:scale(1.035);box-shadow:0 7px 22px rgba(90,53,17,.3),0 0 30px rgba(242,186,78,.65);}
+}
+@media(max-width:760px){
+ .hall-container .diagram-row-number{font-size:15px!important;}
+ .hero .btn-donate-hero.dabro-support-glow,.donation-button.dabro-support-glow {max-width:100%!important;}
+}
+@media(prefers-reduced-motion:reduce){
+ .hero .btn-donate-hero.dabro-support-glow,.donation-button.dabro-support-glow,a.dabro-support-glow{animation:none!important;}
+}
