@@ -737,3 +737,19 @@ body { background: radial-gradient(ellipse at top, #2a1909 0%, #120d08 60%); col
 .hero .donation-caption { color:#e2cbb0; font-size:12px; line-height:1.6; }
 .hero-date-badge { background:rgba(21,15,12,.88); border:1px solid rgba(255,203,103,.65); box-shadow:0 14px 42px rgba(0,0,0,.3); color:#ffd27b; backdrop-filter:blur(12px); }
 @media(max-width:760px) { .hero { min-height:730px; align-items:flex-end; } .hero-overlay { background:linear-gradient(0deg,rgba(12,10,12,.98) 0%,rgba(12,10,12,.88) 36%,rgba(12,10,12,.26) 100%); } .hero-content { width:100%; padding:65px 0 105px; } .hero-subtitle { font-size:12px; margin-bottom:16px; } .hero-title { font-size:clamp(42px,10.5vw,64px); } .hero-desc { color:#f4e8d9; } .hero-date-badge { bottom:18px; right:18px; width:76px; height:76px; } }
+
+/* Mobile navigation hotfix: opaque dark panel, accessible contrast */
+@media (max-width:760px) {
+ .navbar { z-index: 5000; }
+ .nav-links, .nav-links.nav-open { background: #1b130e !important; border: 1px solid rgba(255,195,89,.32); border-top: 0; box-shadow: 0 22px 40px rgba(0,0,0,.48); padding: 16px 20px 22px; max-height: calc(100dvh - 54px); overflow-y:auto; }
+ .nav-links a { color: #fff1d9 !important; font-size: 16px; padding: 13px 12px; border-radius: 10px; }
+ .nav-links a:hover, .nav-links a:focus-visible { background: #342314; color:#ffd37a !important; }
+ .nav-links .nav-donate { color:#231408 !important; padding: 14px 12px; }
+ .nav-burger { color:#ffd16c; }
+}
+/* Stage and seating consistent with the dark gold visual language */
+.hall-container { background: #211811; color:#f9ead3; border:1px solid rgba(245,183,83,.32); border-radius:20px; }
+.stage-label { color:#fff0d0; background:linear-gradient(90deg,#593014,#c78831,#593014); border:1px solid #d8a451; border-radius:8px; padding:10px; }
+.seat-section h3, .diagram-row-number { color:#f8dcac; }
+.seat-purple.seat-available { background:#92517f; }
+.seat-green.seat-available { background:#50892b; }
