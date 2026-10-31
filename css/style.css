@@ -896,3 +896,13 @@ input,textarea,select{accent-color:#ad7130}button,a{transition:background-color 
 @keyframes dabro-gold-shine {0%{background-position:100% 50%}100%{background-position:-100% 50%}}
 @media(max-width:600px){.partner-placeholders {gap:12px}.partner-placeholders .partner-logo{min-height:120px;padding:10px}.partner-placeholders .partner-logo img{height:105px}.dabro-support-glow{min-height:54px}}
 @media(prefers-reduced-motion:reduce){.dabro-support-glow{animation:none}}
+
+/* DaBro — compact partner identity and premium donation CTA */
+.organizers-card{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)!important;gap:32px!important}
+.partner-placeholders{display:flex!important;align-items:center;justify-content:center;gap:18px!important;flex-wrap:wrap}
+.partner-placeholders .partner-logo{width:clamp(108px,12vw,148px)!important;height:clamp(108px,12vw,148px)!important;min-height:0!important;flex:0 0 auto;padding:12px!important;border:1px solid #e5d5bd!important;background:#fffdf8!important;border-radius:18px!important;box-shadow:0 5px 18px rgba(84,58,30,.07)!important}
+.partner-placeholders .partner-logo img{width:100%!important;height:100%!important;max-width:100%!important;object-fit:contain!important}
+.dabro-support-glow,a.dabro-support-glow{background:linear-gradient(115deg,#9b6228 0%,#d6a34f 30%,#f8da91 50%,#c28a39 72%,#9b6228 100%)!important;background-size:220% 100%!important;color:#2f1d0d!important;border:1px solid #f1d18c!important;animation:dabro-premium-breathe 2.25s ease-in-out infinite,dabro-gold-shine 4.5s linear infinite!important;will-change:transform,box-shadow}
+@keyframes dabro-premium-breathe{0%,100%{transform:scale(1);box-shadow:0 5px 18px rgba(162,108,38,.25),0 0 9px rgba(241,194,103,.22)}50%{transform:scale(1.045);box-shadow:0 8px 25px rgba(162,108,38,.35),0 0 25px rgba(248,197,91,.65),0 0 42px rgba(248,197,91,.28)}}
+@media(max-width:700px){.organizers-card{grid-template-columns:1fr!important}.partner-placeholders .partner-logo{width:112px!important;height:112px!important}.partner-placeholders{justify-content:center!important}.dabro-support-glow,a.dabro-support-glow{max-width:100%}}
+@media(prefers-reduced-motion:reduce){.dabro-support-glow,a.dabro-support-glow{animation:none!important}}

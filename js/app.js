@@ -40,15 +40,15 @@ async function supabaseFetch(path, options = {}) {
 // Геометрия рассадки по новой схеме пользователя.
 const HALL_SECTIONS = [
   { id: 'ПАРТЕР', title: 'ПАРТЕР', color: 'purple', rows: [
-    { row: -1, left: 16, right: 16 }, { row: -2, left: 17, right: 17 },
-    { row: -3, left: 19, right: 18 }, { row: -4, left: 19, right: 18 },
-    { row: -5, left: 20, right: 19 }, { row: -6, left: 20, right: 19 }
+    { row: 1, left: 16, right: 16 }, { row: 2, left: 17, right: 17 },
+    { row: 3, left: 19, right: 18 }, { row: 4, left: 19, right: 18 },
+    { row: 5, left: 20, right: 19 }, { row: 6, left: 20, right: 19 }
   ]},
   { id: 'АМФИТЕАТР', title: 'АМФИТЕАТР', color: 'purple', rows: [
-    { row: -1, left: 18, right: 17 }, { row: -2, left: 19, right: 18 },
-    { row: -3, left: 13, right: 13 }, { row: -4, left: 13, right: 12 },
-    { row: -5, left: 12, right: 11 }, { row: -6, left: 10, right: 10 },
-    { row: -7, left: 8, right: 8 }
+    { row: 1, left: 18, right: 17 }, { row: 2, left: 19, right: 18 },
+    { row: 3, left: 13, right: 13 }, { row: 4, left: 13, right: 12 },
+    { row: 5, left: 12, right: 11 }, { row: 6, left: 10, right: 10 },
+    { row: 7, left: 8, right: 8 }
   ]},
 ];
 
@@ -247,7 +247,7 @@ function toggleSeat(el) {
   const row = Number(el.dataset.row);
   const seat = Number(el.dataset.seat);
   const key = seatKey(sector, row, seat);
-  if (bookedSeats.has(key) || (sector === 'ПАРТЕР' && [-1, -2].includes(row)) || el.classList.contains('seat-booked')) return;
+  if (bookedSeats.has(key) || (sector === 'ПАРТЕР' && [1, 2].includes(row)) || el.classList.contains('seat-booked')) return;
 
   const index = selectedSeats.findIndex(s => seatKey(s.sector, s.row, s.seat) === key);
   if (index >= 0) {
@@ -330,7 +330,7 @@ async function loadBookedSeats() {
 function paintBookedSeats() {
   document.querySelectorAll('.seat[data-sector]').forEach(el => {
     const key = seatKey(el.dataset.sector, Number(el.dataset.row), Number(el.dataset.seat));
-    const isBooked = bookedSeats.has(key) || (el.dataset.sector === 'ПАРТЕР' && [-1, -2].includes(Number(el.dataset.row))); 
+    const isBooked = bookedSeats.has(key) || (el.dataset.sector === 'ПАРТЕР' && [1, 2].includes(Number(el.dataset.row))); 
     const selectedIndex = selectedSeats.findIndex(s => seatKey(s.sector, s.row, s.seat) === key);
     el.classList.toggle('seat-booked', isBooked);
     el.disabled = isBooked;

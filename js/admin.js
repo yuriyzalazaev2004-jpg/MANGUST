@@ -365,7 +365,7 @@ document.getElementById('invitationCreateForm')?.addEventListener('submit',async
  try{
   const current=await ensureSession();if(!current)throw Error('Войдите в админ-панель');
   const lines=document.getElementById('inviteSeats').value.trim().split(/\n+/);
-  const seats=lines.map(line=>{const bits=line.split(',').map(x=>x.trim());if(bits.length!==3||! /^-?\d+$/.test(bits[1])||!/^\d+$/.test(bits[2]))throw Error('Формат: ПАРТЕР, -2, 17');return {sector:bits[0],row:Number(bits[1]),seat:Number(bits[2])};});
+  const seats=lines.map(line=>{const bits=line.split(',').map(x=>x.trim());if(bits.length!==3||! /^-?\d+$/.test(bits[1])||!/^\d+$/.test(bits[2]))throw Error('Выберите места на схеме');return {sector:bits[0],row:Number(bits[1]),seat:Number(bits[2])};});
   btn.disabled=true;msg.textContent='Создаём…';
   const result=await invitationRpc('create_invitation',{p_name:document.getElementById('inviteName').value,p_seats:seats},current.access_token);
   const url=new URL('invite.html',location.href);url.searchParams.set('token',result.token);
@@ -410,3 +410,59 @@ async function inviteReserved(id){
  await loadBookings();box.scrollIntoView({behavior:'smooth'});
  }catch(e){alert('Ошибка создания приглашения: '+e.message);}
 }
+
+
+// Визуальный выбор мест для приглашений. Номера рядов совпадают с публичной схемой.
+const INVITE_HALL = {
+ 'ПАРТЕР': [[16,16],[17,17],[19,18],[19,18],[20,19],[20,19]],
+ 'АМФИТЕАТР': [[18,17],[19,18],[13,13],[13,12],[12,11],[10,10],[8,8]]
+};
+let inviteSector = 'ПАРТЕР';
+let inviteSelected = new Map();
+let inviteOccupied = new Set();
+const inviteKey=(sector,row,seat)=>`${sector}::${row}::${seat}`;
+async function refreshInviteOccupied(){
+ try {
+  const current=await ensureSession(); if(!current)return;
+  const rows=await restGet('/rest/v1/reserved_seats?select=sector,row_num,seat_num',current.access_token);
+  inviteOccupied=new Set(rows.map(s=>inviteKey(s.sector,s.row_num,s.seat_num)));
+  renderInviteHall();
+ }catch(err){const el=document.getElementById('inviteSeatSummary');if(el)el.textContent='Не удалось загрузить занятые места: '+err.message;}
+}
+function renderInviteHall(){
+ const target=document.getElementById('inviteSeatMap');if(!target)return;
+ target.replaceChildren();
+ const stage=document.createElement('div');stage.className='invite-stage';stage.textContent='СЦЕНА';target.append(stage);
+ const title=document.createElement('h3');title.textContent=inviteSector;target.append(title);
+ INVITE_HALL[inviteSector].forEach(([left,right],index)=>{
+  const row=index+1, line=document.createElement('div');line.className='invite-map-row';
+  const bank=(start,end,step)=>{const wrap=document.createElement('div');wrap.className='invite-map-bank';for(let seat=start;step>0?seat<=end:seat>=end;seat+=step){
+   const btn=document.createElement('button');btn.type='button';btn.className='invite-map-seat';btn.textContent=seat;
+   const key=inviteKey(inviteSector,row,seat), occupied=inviteOccupied.has(key);
+   btn.disabled=occupied;btn.classList.toggle('is-occupied',occupied);btn.classList.toggle('is-selected',inviteSelected.has(key));
+   btn.setAttribute('aria-label',`${inviteSector}, ряд ${row}, место ${seat}`);
+   btn.setAttribute('aria-pressed',String(inviteSelected.has(key)));
+   btn.title=occupied?'Занято':`${inviteSector}, ряд ${row}, место ${seat}`;
+   btn.addEventListener('click',()=>{
+    if(inviteSelected.has(key))inviteSelected.delete(key);
+    else if(inviteSelected.size>=6){alert('Можно выбрать максимум 6 мест для одного приглашения');return;}
+    else inviteSelected.set(key,{sector:inviteSector,row,seat});
+    syncInviteSelection();renderInviteHall();
+   });wrap.append(btn);
+  }return wrap;};
+  line.append(bank(left+right,right+1,-1));
+  const number=document.createElement('span');number.className='invite-map-row-number';number.textContent=row;line.append(number);
+  line.append(bank(right,1,-1));target.append(line);
+ });
+ document.querySelectorAll('[data-invite-sector]').forEach(btn=>btn.classList.toggle('is-active',btn.dataset.inviteSector===inviteSector));
+}
+function syncInviteSelection(){
+ const seats=[...inviteSelected.values()].sort((a,b)=>a.sector.localeCompare(b.sector,'ru')||a.row-b.row||a.seat-b.seat);
+ const input=document.getElementById('inviteSeats');if(input)input.value=seats.map(s=>`${s.sector}, ${s.row}, ${s.seat}`).join('\n');
+ const summary=document.getElementById('inviteSeatSummary');if(summary)summary.textContent=seats.length?`Выбрано мест: ${seats.length} — ${seats.map(s=>`${s.sector}, ряд ${s.row}, место ${s.seat}`).join('; ')}`:'Места не выбраны';
+}
+document.querySelectorAll('[data-invite-sector]').forEach(btn=>btn.addEventListener('click',()=>{inviteSector=btn.dataset.inviteSector;renderInviteHall();}));
+document.getElementById('invitationCreateForm')?.addEventListener('submit',()=>{setTimeout(()=>{inviteSelected.clear();syncInviteSelection();refreshInviteOccupied();},1200);});
+renderInviteHall();
+const oldRefreshInvitations=refreshInvitations;
+refreshInvitations=async function(){await oldRefreshInvitations();await refreshInviteOccupied();};

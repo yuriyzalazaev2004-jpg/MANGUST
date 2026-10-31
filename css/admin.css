@@ -247,3 +247,23 @@ tr:hover td { background:rgba(255,192,90,.06); }
 :root{--bg:#fbf5e9;--surface:#fffdf8;--text:#352416;--muted:#76614b;--olive:#b47b31;--olive-dark:#86511e;--gold:#b98238;--line:#e7d5b7;--danger:#b92b37;--shadow:0 16px 42px rgba(93,56,23,.09)}
 body{color:#352416!important;background:radial-gradient(circle at 90% 0%,#f5e2bd 0%,transparent 34%),#fbf5e9!important}.login-card,.stat-card,.table-card,.invitation-admin{background:#fffdf8!important;color:#352416!important;border:1px solid #e8d7bc!important;box-shadow:var(--shadow)!important;border-radius:20px!important}.brand-kicker{color:#a36b2b!important}.login-copy,.muted,.status-line,.empty-state{color:#75614b!important}.back-link,.contact-link{color:#87521f!important}h1,h2{color:#704018!important}.dashboard-header{border-color:#e8d7bc!important}.stat-card strong{color:#815020!important}.primary-btn{background:linear-gradient(120deg,#c48c40,#956020)!important;color:white!important;border:1px solid #ae7a3d!important}.secondary-btn{background:#fffaf0!important;color:#80501f!important;border:1px solid #d8b98b!important}.danger-btn{background:#fff0ee!important;color:#a82532!important;border:1px solid #e5b5b8!important}input,textarea,select,.invite-form input,.invite-form textarea,#inviteLink{background:#fff!important;color:#352416!important;border:1px solid #d9c3a1!important;border-radius:11px!important}input::placeholder,textarea::placeholder{color:#a3937e!important}input:focus,textarea:focus{border-color:#bd8c4b!important;box-shadow:0 0 0 3px rgba(189,140,75,.15)!important}table{color:#382719!important}th{background:#f9efdd!important;color:#76512e!important}td{border-color:#ecdfcc!important}tr:hover td{background:#fff8eb!important}.table-wrap{scrollbar-color:#c7a477 #f5ead7}.seat-chip{background:#f5e7cf!important;color:#664320!important;border:1px solid #e3c9a3!important}.message-entry,.invite-entry{border-bottom:1px solid #ead9bc!important}.form-message{color:#b92b37}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #b98443;outline-offset:3px}
 @media(max-width:700px){.admin-shell{width:min(100% - 24px,1440px);padding:24px 0 50px}.login-card,.stat-card,.table-card,.invitation-admin{border-radius:15px!important}.login-card{padding:25px 18px}.dashboard-header{gap:18px}.header-actions{justify-content:flex-start}.stats-grid{gap:10px}.table-toolbar{gap:12px}.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}}
+
+/* Visual invitation seat selector */
+.invite-seat-picker{margin:18px 0;padding:20px;background:#fffaf0;border:1px solid #e6d2b0;border-radius:18px}
+.invite-seat-picker-heading{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;color:#593c23}
+.invite-seat-picker-heading span{font-size:12px;color:#78634d}
+.invite-sector-switch{display:flex;gap:8px;margin:14px 0}
+.invite-sector-switch .is-active{background:#95662d!important;color:white!important;border-color:#95662d!important}
+.invite-hall-scroll{overflow-x:auto;overscroll-behavior-inline:contain;border-radius:12px;background:#f5ebdc;padding:14px}
+.invite-seat-map{min-width:820px;width:max-content;margin:0 auto;text-align:center}
+.invite-stage{background:linear-gradient(90deg,#9e713a,#d1a866,#9e713a);color:white;padding:10px;border-radius:9px;margin-bottom:18px;letter-spacing:.16em;font-weight:700}
+.invite-seat-map h3{margin:10px 0;color:#68482a}
+.invite-map-row{display:flex;justify-content:center;align-items:center;gap:8px;margin:5px 0}
+.invite-map-bank{display:flex;gap:3px;min-width:365px;justify-content:flex-end}
+.invite-map-bank:last-child{justify-content:flex-start}
+.invite-map-row-number{width:24px;flex:none;font-size:12px;color:#795b3c;font-weight:700}
+.invite-map-seat{width:22px;height:25px;padding:0;border:1px solid #b99a70;border-radius:4px;background:#f8ead0;color:#4a3724;font-size:10px;cursor:pointer}
+.invite-map-seat.is-selected{background:#bf283b!important;border-color:#bf283b!important;color:#fff!important}
+.invite-map-seat.is-occupied{background:#929292!important;color:#fff!important;border-color:#929292!important;cursor:not-allowed}
+.invite-map-seat:focus-visible{outline:3px solid #ba792b;outline-offset:2px}
+#inviteSeatSummary{margin:12px 0 0;overflow-wrap:anywhere}
