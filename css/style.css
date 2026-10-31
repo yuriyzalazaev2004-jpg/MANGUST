@@ -638,3 +638,59 @@ body { background: radial-gradient(ellipse at top, #2a1909 0%, #120d08 60%); col
 .official-hall-scheme { max-width: 1200px; margin: 0 auto 30px; padding: 12px; border: 1px solid rgba(255,177,45,.3); border-radius: 18px; background: #1a1108; }
 .official-hall-scheme img { display:block; width:100%; height:auto; border-radius:10px; }
 .official-hall-scheme figcaption { color:#ffca55; text-align:center; padding:10px 6px 2px; font-size:13px; }
+
+
+/* Readability and responsive fixes */
+.intro-grid { grid-template-columns: minmax(0, 1fr); }
+.intro-grid > div {
+  background: linear-gradient(145deg, rgba(48,31,15,.98), rgba(24,16,9,.98));
+  border: 1px solid rgba(255,190,72,.42);
+  box-shadow: 0 16px 42px rgba(0,0,0,.24);
+  color: #fff4df;
+}
+.intro-grid h2 { color: #ffcf70; overflow-wrap: anywhere; }
+.intro-grid .address { color: #f0dfc3; line-height: 1.55; }
+.intro-grid .eyebrow { line-height: 1.7; }
+.hall-wrapper { max-width: 100%; -webkit-overflow-scrolling: touch; }
+.hall-container { transform-origin: top center; }
+.hall-section { overflow: hidden; }
+.seat { touch-action: manipulation; }
+.btn-zoom { margin-top: 10px; }
+
+@media (max-width: 760px) {
+  body { overflow-x: hidden; }
+  .intro-section, .artists-section, .guests-section, .support-section,
+  .hall-section, .organizers-section, .donation-section { padding-left: 14px; padding-right: 14px; }
+  .intro-section { padding-top: 28px; padding-bottom: 28px; }
+  .intro-grid > div { padding: 22px 18px; border-radius: 20px; min-width: 0; }
+  .intro-grid h2 { font-size: clamp(30px, 9vw, 42px); line-height: 1.12; }
+  .intro-grid .address { font-size: 15px; overflow-wrap: anywhere; }
+  .eyebrow { font-size: 10px; letter-spacing: .12em; }
+  .artists-grid, .guests-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .artist-card, .guest-card { min-width: 0; padding: 12px; }
+  .artist-card h3, .guest-card h3 { font-size: 16px; overflow-wrap: anywhere; }
+  .artist-card p { font-size: 13px; }
+  .section-title { font-size: clamp(29px, 8vw, 40px); }
+  .section-subtitle { font-size: 15px; line-height: 1.5; }
+  .hall-wrapper { overflow-x: auto; padding: 6px 0 14px; }
+  .hall-container { min-width: 1010px; width: 1010px; }
+  .hall-legend { flex-wrap: wrap; gap: 10px 16px; }
+  .selected-panel { padding-left: 14px; padding-right: 14px; }
+  .selected-panel-inner { display: flex; flex-direction: column; gap: 14px; }
+  .selected-list { min-width: 0; }
+  .selected-seat-tag { max-width: 100%; overflow-wrap: anywhere; }
+  .btn-book { min-height: 48px; }
+  .support-message { padding: 26px 18px; }
+  .support-message p:last-child { font-size: 16px; line-height: 1.55; overflow-wrap: anywhere; }
+  .hero { min-height: 650px; }
+  .hero-content { padding: 20px 0; }
+  .hero-desc { font-size: 15px; line-height: 1.55; }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .hero-actions a { text-align: center; }
+  .footer-minimal { gap: 12px; }
+}
+@media (max-width: 390px) {
+  .artists-grid, .guests-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero-title { font-size: 40px; }
+  .hero-date-badge { width: 68px; height: 68px; }
+}
