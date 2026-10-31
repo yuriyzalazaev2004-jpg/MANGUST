@@ -7,12 +7,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=21">
+  <link rel="stylesheet" href="css/style.css?v=22">
 </head>
 <body>
   <nav class="navbar">
     <div class="nav-container">
-      <a class="logo" href="#top">ДОБРО</a>
+      <a class="logo" href="#top">ДаБро</a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#artists">Музыкальная программа</a></li>
         <li><a href="#hall">Схема зала</a></li>
@@ -39,7 +39,7 @@
           <p class="donation-caption">Каждый вклад помогает поддержать тех, кто сегодня выполняет важную задачу.</p>
         </div>
       </div>
-      <div class="hero-date-badge"><span class="date-number">3</span><span class="date-month">декабря</span></div>
+      <div class="hero-badges"><div class="hero-date-badge"><span class="date-number">3</span><span class="date-month">декабря</span></div><button class="hero-contact-badge" id="openContact" type="button">Связь с<br>организаторами</button></div>
     </section>
 
     <section class="intro-section">
@@ -99,8 +99,8 @@
     <section class="support-section" id="support">
       <div class="support-message">
         <p class="eyebrow">Цель вечера</p>
-        <h2>Музыка, которая помогает</h2>
-        <p>Все вырученные средства пойдут в помощь 204 полку СпН «АХМАТ» и 2 МСБ 27 ОМСБр «МАНГУСТЫ».</p>
+        <h2>Музыка, которая объединяет и поддерживает</h2>
+        <p>Все вырученные средства пойдут в помощь 204 полку СпН «АХМАТ» и 2 МСБ 27 ОМСБр «МАНГУСТЫ».</p><div class="award-places"><div>Место для знака отличия</div><div>Место для знака отличия</div></div>
       </div>
     </section>
 
@@ -108,7 +108,7 @@
       <div class="section-head">
         <p class="eyebrow">План рассадки</p>
         <h2 class="section-title">Схема зала</h2>
-        <p class="section-subtitle">Нажмите на свободное место. Занятые места видны всем посетителям.</p>
+        <p class="section-subtitle">Вход свободный, строго по регистрации. Выберите свободное место на схеме.</p>
       </div>
       <div class="hall-legend" aria-label="Обозначения схемы">
         <span><i class="legend-seat available"></i>Свободно</span>
@@ -119,7 +119,7 @@
         <div class="stage-label">СЦЕНА</div><div class="stage-bar"></div>
         <div class="hall-floor" id="hallFloor"></div>
         
-        <div class="hall-balcony" id="hallBalcony"></div>
+        
       </div></div>
       <button class="btn-zoom" id="btnZoom" type="button">Увеличить схему</button>
     </section>
@@ -153,6 +153,7 @@
     </section>
   </main>
 
+  <div class="modal-overlay" id="modalContact" aria-hidden="true"><div class="modal modal-register" role="dialog" aria-modal="true" aria-labelledby="contactTitle"><button class="modal-close" id="closeContact" type="button" aria-label="Закрыть">&times;</button><div class="modal-header"><h2 id="contactTitle">Связь с организаторами</h2><p>Оставьте сообщение, и организаторы увидят его в админ-панели.</p></div><form id="contactForm"><div class="form-group"><label for="contactName">ФИО *</label><input id="contactName" required maxlength="150" autocomplete="name"></div><div class="form-group"><label for="contactPhone">Номер телефона *</label><input id="contactPhone" required maxlength="30" type="tel" autocomplete="tel"></div><div class="form-group"><label for="contactMessage">Сообщение *</label><textarea id="contactMessage" required maxlength="2000" rows="4"></textarea></div><button class="btn-submit" type="submit">Отправить</button><p id="contactStatus" role="status"></p></form></div></div>
   <div class="modal-overlay" id="modalRegister" aria-hidden="true"><div class="modal modal-register" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
     <button class="modal-close" id="closeRegister" type="button" aria-label="Закрыть">&times;</button>
     <div class="modal-header"><h2 id="registerTitle">Бронирование места</h2><p>Заполните данные для подтверждения брони</p></div>
@@ -170,7 +171,7 @@
     <div class="success-donation-prompt"><p>Спасибо, что помогаете добру!</p><a class="btn-donate-after" href="https://www.donationalerts.com/r/kinsem_darkdressed" target="_blank" rel="noopener noreferrer">Поддержать проект</a><button class="btn-skip" id="btnSkipDonation" type="button">Закрыть</button></div>
   </div></div>
 
-  <footer class="footer"><div class="footer-minimal"><div><strong>ДАБРО</strong><span>«Золотое кольцо» · Москва, Тимирязевская, 17</span></div><span><a href="#organizers">Организаторы</a> · <a href="admin.html">Вход</a></span></div></footer>
-  <script src="js/config.js?v=17"></script><script src="js/app.js?v=21"></script>
+  <footer class="footer"><div class="footer-minimal"><div><strong>ДаБро</strong><span>«Золотое кольцо» · Москва, Тимирязевская, 17</span></div><span><a href="#organizers">Организаторы</a> · <a href="admin.html">Вход</a></span></div></footer>
+  <script src="js/config.js?v=17"></script><script src="js/app.js?v=22"></script>
 </body>
 </html>

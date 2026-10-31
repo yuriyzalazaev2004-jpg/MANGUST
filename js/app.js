@@ -50,11 +50,6 @@ const HALL_SECTIONS = [
     { row: -5, left: 12, right: 11 }, { row: -6, left: 10, right: 10 },
     { row: -7, left: 8, right: 8 }
   ]},
-  { id: 'БЕЛЬЭТАЖ', title: 'БЕЛЬЭТАЖ', color: 'green', rows: [
-    { row: -1, left: 0, right: 0, seats: [20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1] },
-    { row: -2, left: 0, right: 0, seats: [20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1] },
-    { row: -3, left: 0, right: 0, seats: [7,6,5,4,3,2,1] }
-  ]}
 ];
 
 function range(from, to) {
@@ -101,9 +96,9 @@ function setupHeroImage() {
 function renderHall() {
   const floor = document.getElementById('hallFloor');
   const balcony = document.getElementById('hallBalcony');
-  if (!floor || !balcony) return;
+  if (!floor) return;
   floor.innerHTML = '';
-  balcony.innerHTML = '';
+
   const parterre = document.createElement('section');
   parterre.className = 'seat-section parterre-section';
   parterre.innerHTML = '<h3>ПАРТЕР</h3>';
@@ -116,11 +111,6 @@ function renderHall() {
   HALL_SECTIONS[1].rows.forEach(cfg => amphitheater.appendChild(createSplitSeatRow('АМФИТЕАТР', cfg, 'purple')));
   floor.appendChild(amphitheater);
 
-  const balconySection = document.createElement('section');
-  balconySection.className = 'seat-section bel-etage-section';
-  balconySection.innerHTML = '<h3>БЕЛЬЭТАЖ</h3>';
-  HALL_SECTIONS[2].rows.forEach(cfg => balconySection.appendChild(createSplitSeatRow('БЕЛЬЭТАЖ', cfg, 'green')));
-  balcony.appendChild(balconySection);
   renderAmphiSideWings(floor);
 }
 
@@ -360,6 +350,9 @@ function setupEventListeners() {
     openModal('modalRegister');
   });
   byId('bookingForm')?.addEventListener('submit', handleBooking);
+  byId('openContact')?.addEventListener('click',()=>openModal('modalContact'));
+  byId('closeContact')?.addEventListener('click',()=>closeModal('modalContact'));
+  byId('contactForm')?.addEventListener('submit',sendContactMessage);
   byId('closeRegister')?.addEventListener('click', () => closeModal('modalRegister'));
   byId('closeSuccess')?.addEventListener('click', () => closeModal('modalSuccess'));
   byId('btnSkipDonation')?.addEventListener('click', () => closeModal('modalSuccess'));
@@ -488,3 +481,14 @@ document.querySelectorAll('.artist-photo img, .guest-photo img').forEach((img) =
     img.style.display = 'none';
   }, { once: true });
 });
+
+async function sendContactMessage(e) {
+ e.preventDefault();
+ const form=e.currentTarget, status=document.getElementById('contactStatus'),button=form.querySelector('button[type=submit]');
+ button.disabled=true;status.textContent='Отправляем…';
+ try {
+  await supabaseFetch('/rest/v1/rpc/send_organizer_message',{method:'POST',body:JSON.stringify({p_name:document.getElementById('contactName').value.trim(),p_phone:document.getElementById('contactPhone').value.trim(),p_message:document.getElementById('contactMessage').value.trim()})});
+  status.textContent='Сообщение отправлено организаторам.';form.reset();
+ } catch(err){status.textContent='Не удалось отправить: '+err.message+' (проверьте SQL-настройку).';}
+ finally{button.disabled=false;}
+}

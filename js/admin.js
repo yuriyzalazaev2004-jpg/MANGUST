@@ -195,7 +195,8 @@ document.getElementById('logoutButton')?.addEventListener('click', async () => {
   showLogin();
 });
 
-document.getElementById('refreshButton')?.addEventListener('click', () => loadBookings());
+document.getElementById('refreshButton')?.addEventListener('click', async () => {await loadBookings();await loadContactMessages();});
+document.getElementById('pdfButton')?.addEventListener('click',exportPdf);
 document.getElementById('exportButton')?.addEventListener('click', exportCsv);
 searchInput?.addEventListener('input', applyFilter);
 
@@ -205,6 +206,7 @@ async function openDashboard(current) {
   dashboardView.classList.remove('hidden');
   adminIdentity.textContent = 'Закрытая панель организатора';
   await loadBookings();
+  await loadContactMessages();
 }
 
 function showLogin() {
@@ -286,7 +288,11 @@ function renderRows(rows) {
       <td><a class="contact-link" href="tel:${escapeAttr(row.phone)}">${escapeHtml(row.phone)}</a></td>
       <td><a class="contact-link" href="mailto:${escapeAttr(row.email)}">${escapeHtml(row.email)}</a></td>
       <td><div class="seat-list">${row.seats.map(seat => `<span class="seat-chip">${escapeHtml(formatSeat(seat))}</span>`).join('')}</div></td>
-      <td>${escapeHtml(formatDate(row.created_at))}</td>`;
+      <td>${escapeHtml(formatDate(row.created_at))}</td><td><button type="button" class="danger-btn delete-booking" data-id="${escapeAttr(row.id)}">Удалить бронь</button></td>`;
+    if(row.full_name==='Резерв организаторов'){
+      const td=tr.lastElementChild, btn=document.createElement('button');btn.type='button';btn.className='secondary-btn';btn.textContent='Пригласить гостя';btn.addEventListener('click',()=>inviteReserved(row.id));td.prepend(btn);
+    }
+    tr.querySelector(".delete-booking")?.addEventListener("click",()=>deleteBooking(row.id,row.full_name));
     tableBody.appendChild(tr);
   });
 }
@@ -370,3 +376,37 @@ document.getElementById('invitationCreateForm')?.addEventListener('submit',async
 document.getElementById('inviteCopy')?.addEventListener('click',async()=>{const input=document.getElementById('inviteLink');try{await navigator.clipboard.writeText(input.value);document.getElementById('inviteMessage').textContent='Ссылка скопирована';}catch{input.select();document.getElementById('inviteMessage').textContent='Выделите и скопируйте ссылку';}});
 const originalLoadBookings=loadBookings;
 loadBookings=async function(){await originalLoadBookings();await refreshInvitations();};
+
+async function deleteBooking(id,name){
+ if(!confirm(`Удалить бронь «${name}» и освободить все её места?`))return;
+ try{const current=await ensureSession();if(!current)throw Error('Сессия завершилась');await invitationRpc('admin_delete_booking',{p_booking_id:id},current.access_token);await loadBookings();await refreshInvitations();}
+ catch(e){alert('Не удалось удалить бронь: '+e.message+' (выполните SQL-файл 06).');}
+}
+async function loadContactMessages(){
+ const target=document.getElementById('contactMessages');if(!target)return;
+ try{const current=await ensureSession();if(!current)return;
+ const rows=await restGet('/rest/v1/organizer_messages?select=id,full_name,phone,message,created_at&order=created_at.desc&limit=200',current.access_token);
+ target.replaceChildren();if(!rows.length){target.textContent='Сообщений пока нет.';return;}
+ for(const item of rows){const div=document.createElement('div');div.className='message-entry';
+ const title=document.createElement('strong');title.textContent=`${item.full_name} · ${item.phone} · ${formatDate(item.created_at)}`;
+ const body=document.createElement('p');body.textContent=item.message;div.append(title,body);target.append(div);}
+ }catch(e){target.textContent='Не удалось загрузить сообщения: '+e.message+' (выполните SQL-файл 06).';}
+}
+function exportPdf(){
+ if(!allRows.length){alert('Нет бронирований для PDF.');return;}
+ const w=window.open('','_blank');if(!w){alert('Разрешите всплывающие окна для печати PDF.');return;}
+ const body=allRows.map(r=>`<tr><td>${escapeHtml(r.full_name)}</td><td>${escapeHtml(r.phone)}</td><td>${escapeHtml(r.email)}</td><td>${escapeHtml(r.seats.map(formatSeat).join('; '))}</td><td>${escapeHtml(formatDate(r.created_at))}</td></tr>`).join('');
+ w.document.write(`<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>Гости ДаБро</title><style>body{font:12px Arial;padding:24px}table{width:100%;border-collapse:collapse}td,th{border:1px solid #aaa;padding:7px;text-align:left}h1{color:#98701d}@page{size:A4 landscape;margin:12mm}</style></head><body><h1>ДаБро — список гостей</h1><p>3 декабря · 19:00–20:30 · Москва, Тимирязевская, 17</p><table><thead><tr><th>ФИО</th><th>Телефон</th><th>Email</th><th>Места</th><th>Дата брони</th></tr></thead><tbody>${body}</tbody></table><script>window.onload=()=>window.print()<\/script></body></html>`);
+ w.document.close();
+}
+
+async function inviteReserved(id){
+ const name=prompt('Введите ФИО гостя для приглашения на это место:');if(!name)return;
+ try{const current=await ensureSession();if(!current)throw Error('Сессия завершилась');
+ const result=await invitationRpc('invite_reserved_seat',{p_booking_id:id,p_name:name.trim()},current.access_token);
+ const url=new URL('invite.html',location.href);url.searchParams.set('token',result.token);
+ const box=document.getElementById('inviteLinkBox');document.getElementById('inviteLink').value=url.href;box.classList.remove('hidden');
+ document.getElementById('inviteMessage').textContent='Приглашение готово. Сохраните ссылку: повторно получить её нельзя.';
+ await loadBookings();box.scrollIntoView({behavior:'smooth'});
+ }catch(e){alert('Ошибка создания приглашения: '+e.message);}
+}
