@@ -239,3 +239,5 @@ th { color:#ffcf7c; background:#302116; }
 td { border-bottom-color:rgba(255,193,93,.13); }
 tr:hover td { background:rgba(255,192,90,.06); }
 .status-line,.empty-state { color:#d3b995; }
+
+.invitation-admin{margin:24px 0;padding:24px}.invite-form{display:grid;gap:14px;max-width:650px;margin:20px 0}.invite-form label{display:grid;gap:7px}.invite-form input,.invite-form textarea,#inviteLink{width:100%;padding:12px;border-radius:9px;border:1px solid #92703b;background:#211a15;color:#f9e9d0;font:inherit}.invite-entry{border-bottom:1px solid #6b5136;padding:9px 0;overflow-wrap:anywhere}#inviteLinkBox{margin:15px 0;max-width:700px}#inviteLinkBox label{display:grid;gap:8px}#inviteCopy{margin-top:8px}

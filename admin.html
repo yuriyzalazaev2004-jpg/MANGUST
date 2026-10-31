@@ -61,6 +61,7 @@
         </article>
       </div>
 
+      <section class="table-card invitation-admin"><h2>Персональные приглашения</h2><p class="muted">Места резервируются сразу после создания. При отказе освобождаются автоматически.</p><form id="invitationCreateForm" class="invite-form"><label>ФИО гостя<input id="inviteName" required minlength="2" maxlength="150" placeholder="Иванов Иван Иванович"></label><label>Места (сектор, ряд, место — по одному на строку)<textarea id="inviteSeats" required rows="3" placeholder="ПАРТЕР, -2, 17"></textarea></label><button class="primary-btn" type="submit">Создать приглашение</button></form><p id="inviteMessage" role="status"></p><div id="inviteLinkBox" class="hidden"><label>Персональная ссылка<input id="inviteLink" readonly></label><button id="inviteCopy" class="secondary-btn" type="button">Копировать ссылку</button></div><h3>Статусы приглашений</h3><div id="invitationList"></div></section>
       <section class="table-card">
         <div class="table-toolbar">
           <div>
@@ -96,6 +97,6 @@
   </main>
 
   <script src="js/config.js?v=10"></script>
-  <script src="js/admin.js?v=10"></script>
+  <script src="js/admin.js?v=invite1"></script>
 </body>
 </html>

@@ -336,3 +336,37 @@ function escapeAttr(value) {
 }
 
 init();
+
+// Персональные приглашения
+async function invitationRpc(name, payload, accessToken) {
+ const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`, {method:'POST',headers:{apikey:SUPABASE_KEY,Authorization:`Bearer ${accessToken}`, 'Content-Type':'application/json'},body:JSON.stringify(payload)});
+ const data=await response.json().catch(()=>null);
+ if(!response.ok) throw new Error(data?.message||`HTTP ${response.status}`);
+ return data;
+}
+async function refreshInvitations(){
+ const target=document.getElementById('invitationList'); if(!target)return;
+ try{
+  const current=await ensureSession();if(!current)return;
+  const items=await restGet('/rest/v1/invitations?select=booking_id,status,created_at&order=created_at.desc',current.access_token);
+  target.replaceChildren();
+  if(!items.length){target.textContent='Приглашений пока нет.';return;}
+  for(const item of items){const row=allRows.find(x=>x.id===item.booking_id);const el=document.createElement('p');el.className='invite-entry';el.textContent=`${row?.full_name||'Гость'} · ${(row?.seats||[]).map(formatSeat).join('; ')||'места освобождены'} · ${({'pending':'Ожидает ответа','accepted':'Придёт','declined':'Отказ'})[item.status]||item.status}`;target.append(el);}
+ }catch(e){target.textContent='Не удалось загрузить приглашения: '+e.message;}
+}
+document.getElementById('invitationCreateForm')?.addEventListener('submit',async e=>{
+ e.preventDefault();const msg=document.getElementById('inviteMessage');const btn=e.currentTarget.querySelector('button[type=submit]');
+ try{
+  const current=await ensureSession();if(!current)throw Error('Войдите в админ-панель');
+  const lines=document.getElementById('inviteSeats').value.trim().split(/\n+/);
+  const seats=lines.map(line=>{const bits=line.split(',').map(x=>x.trim());if(bits.length!==3||! /^-?\d+$/.test(bits[1])||!/^\d+$/.test(bits[2]))throw Error('Формат: ПАРТЕР, -2, 17');return {sector:bits[0],row:Number(bits[1]),seat:Number(bits[2])};});
+  btn.disabled=true;msg.textContent='Создаём…';
+  const result=await invitationRpc('create_invitation',{p_name:document.getElementById('inviteName').value,p_seats:seats},current.access_token);
+  const url=new URL('invite.html',location.href);url.searchParams.set('token',result.token);
+  document.getElementById('inviteLink').value=url.href;document.getElementById('inviteLinkBox').classList.remove('hidden');msg.textContent='Приглашение создано. Места зарезервированы. Сохраните ссылку сейчас: повторно получить её нельзя.';
+  await loadBookings();await refreshInvitations();
+ }catch(err){msg.textContent='Ошибка: '+err.message;}finally{btn.disabled=false;}
+});
+document.getElementById('inviteCopy')?.addEventListener('click',async()=>{const input=document.getElementById('inviteLink');try{await navigator.clipboard.writeText(input.value);document.getElementById('inviteMessage').textContent='Ссылка скопирована';}catch{input.select();document.getElementById('inviteMessage').textContent='Выделите и скопируйте ссылку';}});
+const originalLoadBookings=loadBookings;
+loadBookings=async function(){await originalLoadBookings();await refreshInvitations();};
