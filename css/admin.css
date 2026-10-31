@@ -217,3 +217,25 @@ tbody tr:hover { background: #fbfaf7; }
   .header-actions { width: 100%; }
   .header-actions button { flex: 1; min-width: 130px; }
 }
+
+/* Dark event identity for organizer dashboard */
+:root { --bg:#100c0a; --surface:#211813; --text:#fff0d9; --muted:#c5ad8c; --olive:#ffc361; --olive-dark:#f3a934; --gold:#ffcf75; --line:#57402b; --danger:#e27b68; --shadow:0 22px 65px rgba(0,0,0,.35); }
+body { color:var(--text); background:radial-gradient(ellipse at 85% 0%,rgba(158,91,25,.2),transparent 45%),linear-gradient(145deg,#1d1410,#0e0b09 75%); }
+.login-card,.stat-card,.table-card { background:linear-gradient(145deg,rgba(43,30,22,.98),rgba(26,20,16,.99)); border:1px solid rgba(255,193,93,.21); box-shadow:var(--shadow); }
+h1,h2 { color:#ffdf9c; }
+.brand-kicker { color:#ffbc51; }
+.login-copy,.muted { color:#cdb89d; }
+.back-link { color:#ffcd79; }
+input { background:#19130f; border:1px solid #685039; color:#fff0d9; }
+input::placeholder { color:#a38d75; }
+input:focus { border-color:#ffbd56; box-shadow:0 0 0 3px rgba(255,188,80,.16); }
+.primary-btn { background:linear-gradient(120deg,#ffce69,#df8b1b); color:#241407; border-color:#f4b95b; }
+.secondary-btn { background:#33251a; color:#ffe3b0; border-color:#705136; }
+.danger-btn { background:#44251f; color:#ffb5a6; border-color:#855045; }
+.stat-card strong { color:#ffd079; }
+.table-wrap { scrollbar-color:#7d532c #211813; }
+table { color:#f5e6d0; }
+th { color:#ffcf7c; background:#302116; }
+td { border-bottom-color:rgba(255,193,93,.13); }
+tr:hover td { background:rgba(255,192,90,.06); }
+.status-line,.empty-state { color:#d3b995; }
