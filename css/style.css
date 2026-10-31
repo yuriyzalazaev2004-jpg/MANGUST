@@ -770,3 +770,27 @@ body { background: radial-gradient(ellipse at top, #2a1909 0%, #120d08 60%); col
 @keyframes donatePulse{50%{box-shadow:0 0 36px rgba(255,176,40,.95);transform:scale(1.045)}}
 #contactMessage{width:100%;resize:vertical;min-height:100px;border:1px solid #b9a27a;border-radius:8px;padding:12px;font:inherit}
 @media(max-width:760px){.hero-badges{right:12px;bottom:14px;gap:8px}.hero-badges .hero-date-badge{width:76px;height:76px}.hero-contact-badge{width:82px;height:82px;font-size:10px}.hero-content{padding-bottom:145px!important}}
+
+/* 31.10: consistent champagne/gold visual refresh */
+:root { --bg:#f6f0e4;--surface:#fffaf1;--text:#30251a;--muted:#695542;--gold:#ac762b;--gold-light:#f4d394;--line:#d9bf91;--seat-free:#e8bd70;--seat-selected:#287f6d;--seat-booked:#666b73; }
+body {background:#f6f0e4;color:#30251a}
+.intro-section,.artists-section,.guests-section,.support-section,.hall-section,.organizers-section,.donation-section {background:#f6f0e4;color:#30251a}
+.section-title,.intro-grid h2,.support-message h2,.section-head h2 {color:#79501d!important;text-shadow:none!important;opacity:1!important}
+.section-subtitle,.intro-grid .address,.support-message p,.section-head p:not(.eyebrow) {color:#604c37!important;opacity:1!important}
+.eyebrow {color:#9a641d!important}
+.artist-card {background:#2b2119;border:1px solid #b78c4a;border-radius:18px;overflow:hidden;box-shadow:0 10px 25px rgba(51,36,19,.10)}
+.artist-card h3 {color:#f6c978!important;font-size:clamp(18px,1.7vw,26px);line-height:1.2}
+.artist-card p {color:#f6e5c7!important}
+.artist-photo {overflow:hidden}
+.artist-photo img {width:100%;height:100%;object-fit:cover}
+.artists-grid {align-items:stretch}
+.hero-badges {right:clamp(14px,3vw,50px);bottom:24px}
+.hero-contact-badge {width:112px;height:112px;background:#382617;color:#ffe0a1;border:2px solid #d6a45b;font-size:12px}
+.hall-container {background:#2a2119!important;border:1px solid #bc965a;color:#f9e8c7}
+.stage-label {background:linear-gradient(100deg,#71441f,#c38b3b,#71441f)!important;color:#fff4db!important}
+.seat-available,.seat-purple.seat-available,.seat-green.seat-available {background:#e8bd70!important;color:#30251a!important}
+.seat-selected,.seat-purple.seat-selected,.seat-green.seat-selected {background:#287f6d!important;color:white!important}
+.seat-booked,.seat-purple.seat-booked,.seat-green.seat-booked {background:#666b73!important;color:white!important}
+.legend-seat.available {background:#e8bd70!important}.legend-seat.selected {background:#287f6d!important}.legend-seat.booked {background:#666b73!important}
+.amphi-side-wings {display:none!important}
+@media(max-width:760px){.hero-badges{bottom:14px;right:12px}.hero-contact-badge{width:88px;height:88px;font-size:10px}.section-title{line-height:1.12}}

@@ -111,7 +111,7 @@ function renderHall() {
   HALL_SECTIONS[1].rows.forEach(cfg => amphitheater.appendChild(createSplitSeatRow('АМФИТЕАТР', cfg, 'purple')));
   floor.appendChild(amphitheater);
 
-  renderAmphiSideWings(floor);
+  // Боковые блоки амфитеатра удалены по запросу организаторов.
 }
 
 function createSplitSeatRow(sector, cfg, color) {
