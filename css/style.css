@@ -846,3 +846,42 @@ input,textarea,select{accent-color:#ad7130}button,a{transition:background-color 
   .btn-book {width:100%!important;min-height:42px!important;}
   .booking-note {font-size:11px!important;text-align:center!important;}
 }
+
+/* DaBro November 1: cohesive cards, strong donation CTA, compact mobile and restored full seating diagram */
+.organizers-card,.donation-card{background:linear-gradient(135deg,#fffdf7 0%,#f3e5ce 100%)!important;border:1px solid #dfc49b!important;border-radius:24px!important;box-shadow:0 14px 38px rgba(90,55,21,.09)!important;color:#46301e!important}
+.organizers-card h2,.donation-card h2{color:#70401f!important;font-size:clamp(28px,3.4vw,44px)!important;line-height:1.13!important}
+.organizers-card p,.donation-card p{color:#5f4a36!important;opacity:1!important}
+.organizers-card .eyebrow,.donation-card .eyebrow{color:#9a672d!important}
+.partner-placeholders span{background:#fffaf0!important;color:#9a7649!important;border:1px dashed #c7a57a!important;min-height:95px}
+.hero .btn-donate-hero,.donation-button{background:linear-gradient(105deg,#ffdb78 0%,#ffae25 52%,#ed7a0e 100%)!important;color:#38210b!important;border:1px solid #ffce66!important;box-shadow:0 0 0 0 rgba(255,166,35,.5),0 9px 26px rgba(182,105,22,.24)!important;font-weight:800!important;animation:dabro-gold-pulse 1.9s ease-in-out infinite!important}
+@keyframes dabro-gold-pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,171,42,.48),0 9px 26px rgba(182,105,22,.24);filter:brightness(1)}55%{box-shadow:0 0 0 10px rgba(255,171,42,0),0 9px 30px rgba(182,105,22,.3);filter:brightness(1.08)}}
+.hall-touch-hint{display:none}
+.seat-booked,.seat-purple.seat-booked,.seat-green.seat-booked{background:#888b91!important;color:#fff!important}
+@media(max-width:760px){
+ html,body{max-width:100%;overflow-x:clip}
+ .hero{min-height:0!important;padding-bottom:20px!important}
+ .hero-inner{padding-bottom:0!important}
+ .hero-content{padding:52px 0 20px!important;width:100%!important}
+ .hero-title{font-size:clamp(37px,9.2vw,56px)!important;line-height:1.06!important;letter-spacing:-.045em!important;overflow-wrap:anywhere}
+ .hero-subtitle{font-size:10px!important;letter-spacing:.10em!important;line-height:1.5!important}
+ .hero-desc{font-size:15px!important;line-height:1.55!important;margin-top:18px!important}
+ .hero-actions{gap:10px!important}
+ .hero-actions a{min-height:48px!important;padding:12px 16px!important;font-size:14px!important}
+ .hero-badges{position:relative!important;inset:auto!important;display:flex!important;justify-content:flex-end!important;padding:0 18px 12px!important;pointer-events:auto}
+ .hero-contact-badge{width:92px!important;height:92px!important;flex:0 0 92px!important;font-size:10px!important;overflow-wrap:break-word;line-height:1.2!important;padding:8px!important}
+ .intro-grid>div,.organizers-card,.donation-card{padding:24px 20px!important;border-radius:18px!important}
+ .intro-grid h2{font-size:clamp(29px,8vw,42px)!important}
+ .organizers-card h2,.donation-card h2{font-size:clamp(26px,7vw,36px)!important}
+ .partner-placeholders{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+ .partner-placeholders span{min-width:0!important;min-height:74px!important;font-size:10px!important}
+ .hall-mobile-tools{display:none!important}
+ .hall-touch-hint{display:block;margin:12px 18px;text-align:center;color:#71563b;font-size:13px;line-height:1.45}
+ .hall-wrapper{width:100%!important;overflow-x:auto!important;overflow-y:hidden!important;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;scrollbar-width:thin}
+ .hall-container{width:960px!important;min-width:960px!important;max-width:none!important;transform:none;}
+ .hall-container .amphitheater-section,.hall-container .parterre-section{display:block!important}
+ .seat{width:29px!important;height:32px!important;flex-basis:29px!important;font-size:12px!important}
+ .selected-panel-inner{gap:8px!important}
+ .selected-list{width:100%!important}
+ #selectedSeatsList{max-height:none!important;overflow:visible!important}
+}
+@media(prefers-reduced-motion:reduce){.hero .btn-donate-hero,.donation-button{animation:none!important}}

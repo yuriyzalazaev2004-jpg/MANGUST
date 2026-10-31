@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderHall();
   setupEventListeners();
   updateSelectedPanel();
+  paintBookedSeats();
   if (isSupabaseConfigured()) {
     loadBookedSeats();
     seatRefreshTimer = setInterval(loadBookedSeats, 12000);
@@ -246,7 +247,7 @@ function toggleSeat(el) {
   const row = Number(el.dataset.row);
   const seat = Number(el.dataset.seat);
   const key = seatKey(sector, row, seat);
-  if (bookedSeats.has(key) || el.classList.contains('seat-booked')) return;
+  if (bookedSeats.has(key) || (sector === 'ПАРТЕР' && [-1, -2].includes(row)) || el.classList.contains('seat-booked')) return;
 
   const index = selectedSeats.findIndex(s => seatKey(s.sector, s.row, s.seat) === key);
   if (index >= 0) {
@@ -329,7 +330,7 @@ async function loadBookedSeats() {
 function paintBookedSeats() {
   document.querySelectorAll('.seat[data-sector]').forEach(el => {
     const key = seatKey(el.dataset.sector, Number(el.dataset.row), Number(el.dataset.seat));
-    const isBooked = bookedSeats.has(key);
+    const isBooked = bookedSeats.has(key) || (el.dataset.sector === 'ПАРТЕР' && [-1, -2].includes(Number(el.dataset.row))); 
     const selectedIndex = selectedSeats.findIndex(s => seatKey(s.sector, s.row, s.seat) === key);
     el.classList.toggle('seat-booked', isBooked);
     el.disabled = isBooked;
@@ -496,15 +497,3 @@ async function sendContactMessage(e) {
  finally{button.disabled=false;}
 }
 
-// Mobile sector navigation: the desktop diagram remains unchanged.
-document.querySelectorAll('[data-hall-sector]').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('[data-hall-sector]').forEach(t => t.classList.toggle('active', t === tab));
-    document.getElementById('hallContainer')?.setAttribute('data-mobile-sector', tab.dataset.hallSector);
-    const wrapper = document.querySelector('.hall-wrapper');
-    if (wrapper) wrapper.scrollLeft = 0;
-  });
-});
-if (window.matchMedia('(max-width: 760px)').matches) {
-  document.getElementById('hallContainer')?.setAttribute('data-mobile-sector', 'parterre');
-}
