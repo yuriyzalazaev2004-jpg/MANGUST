@@ -147,14 +147,22 @@ function createDiagramSeat(sector, row, seat, color) {
 }
 
 function renderAmphiSideWings(root) {
+  // Side blocks follow the curved outline of the supplied seating plan.
   const wings = document.createElement('div');
   wings.className = 'amphi-side-wings';
-  const left = [[40,39,38,37],[36,35,34,33,32],[40,39,38],[37,36,35,34,33,32,31],[30,29,28,27,26,25,24,23,22,21]];
-  const right = [[4,3,2,1],[5,4,3,2,1],[6,5,4,3,2,1],[8,7,6,5,4],[9,8,7,6,5,4,3,2,1]];
+  const left = [
+    [40,39,38,37],[36,35,34,33,32],[40,39,38],[37,36,35,34,33,32,31],[30,29,28,27,26,25,24,23,22,21]
+  ];
+  const right = [
+    [4,3,2,1],[5,4,3,2,1],[6,5,4,3,2,1],[8,7,6,5,4],[9,8,7,6,5,4,3,2,1]
+  ];
   [left,right].forEach((side, sideIndex) => {
-    const col = document.createElement('div'); col.className = sideIndex ? 'wing wing-right' : 'wing wing-left';
+    const col = document.createElement('div');
+    col.className = sideIndex ? 'wing wing-right' : 'wing wing-left';
     side.forEach((nums, idx) => {
-      const line = document.createElement('div'); line.className = 'wing-line';
+      const line = document.createElement('div');
+      line.className = 'wing-line';
+      line.style.setProperty('--wing-step', String(idx));
       nums.forEach(n => line.appendChild(createDiagramSeat('АМФИТЕАТР-БОКОВЫЕ', -(idx + 1), n, 'green')));
       col.appendChild(line);
     });
