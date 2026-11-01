@@ -493,7 +493,7 @@ async function sendContactMessage(e) {
  const form=e.currentTarget, status=document.getElementById('contactStatus'),button=form.querySelector('button[type=submit]');
  button.disabled=true;status.textContent='Отправляем…';
  try {
-  await supabaseFetch('/rest/v1/rpc/send_organizer_message',{method:'POST',body:JSON.stringify({p_name:document.getElementById('contactName').value.trim(),p_phone:document.getElementById('contactPhone').value.trim(),p_message:document.getElementById('contactMessage').value.trim()})});
+  await supabaseFetch('/rest/v1/rpc/send_organizer_message',{method:'POST',body:JSON.stringify({p_full_name:document.getElementById('contactName').value.trim(),p_phone:document.getElementById('contactPhone').value.trim(),p_message:document.getElementById('contactMessage').value.trim()})});
   status.textContent='Сообщение отправлено организаторам.';form.reset();
  } catch(err){status.textContent='Не удалось отправить: '+err.message+' (проверьте SQL-настройку).';}
  finally{button.disabled=false;}
