@@ -960,3 +960,53 @@ a.dabro-support-glow {
 .award-places .award-unit figcaption{font-size:clamp(14px,1.5vw,17px);font-weight:700;line-height:1.4;text-align:center;color:inherit}
 @media(max-width:540px){.award-places{gap:12px;margin-top:24px}.award-places .award-unit{min-height:215px;padding:14px 9px;gap:12px;border-radius:16px}.award-places .award-unit img{height:150px;max-width:100%}.award-places .award-unit figcaption{font-size:12px;line-height:1.35}}
 @media(max-width:360px){.award-places{grid-template-columns:1fr}.award-places .award-unit img{height:190px}}
+
+/* ДаБро: компактные знаки подразделений — как логотипы организаторов */
+.award-places {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  width: min(100%, 390px) !important;
+  max-width: 390px !important;
+  gap: 14px !important;
+  margin: 24px auto 0 !important;
+  align-items: stretch !important;
+}
+.award-places .award-unit {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 14px 10px !important;
+  gap: 10px !important;
+  border-radius: 16px !important;
+}
+.award-places .award-unit img {
+  display: block !important;
+  width: 100% !important;
+  max-width: 140px !important;
+  height: 135px !important;
+  object-fit: contain !important;
+}
+.award-places .award-unit figcaption {
+  font-size: 12px !important;
+  line-height: 1.35 !important;
+}
+@media (max-width: 540px) {
+  .award-places {width: min(100%, 340px) !important; gap: 10px !important;}
+  .award-places .award-unit {padding: 10px 6px !important; gap: 8px !important;}
+  .award-places .award-unit img {max-width: 116px !important; height: 110px !important;}
+  .award-places .award-unit figcaption {font-size: 11px !important;}
+}
+@media (max-width: 360px) {
+  .award-places {grid-template-columns: repeat(2, minmax(0, 1fr)) !important;}
+}
+
+/* ДаБро: читаемые подписи подразделений на светлом фоне */
+.award-places .award-unit figcaption {
+  color: #4a2b18 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+  font-weight: 700 !important;
+}
