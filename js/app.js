@@ -354,7 +354,7 @@ function setupEventListeners() {
     openModal('modalRegister');
   });
   byId('bookingForm')?.addEventListener('submit', handleBooking);
-  byId('openContact')?.addEventListener('click',()=>openModal('modalContact'));
+  byId('openContact')?.addEventListener('click',()=>{document.querySelector('.nav-links')?.classList.remove('nav-open');byId('burger')?.setAttribute('aria-expanded','false');openModal('modalContact');});
   byId('footerPartnerContact')?.addEventListener('click',()=>openModal('modalContact'));
   byId('closeContact')?.addEventListener('click',()=>closeModal('modalContact'));
   byId('contactForm')?.addEventListener('submit',sendContactMessage);
@@ -367,7 +367,7 @@ function setupEventListeners() {
     const isOpen = links?.classList.toggle('nav-open');
     byId('burger')?.setAttribute('aria-expanded', String(Boolean(isOpen)));
   });
-  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+  document.querySelectorAll('.nav-links a, .nav-links button').forEach(a => a.addEventListener('click', () => {
     document.querySelector('.nav-links')?.classList.remove('nav-open');
     byId('burger')?.setAttribute('aria-expanded', 'false');
   }));

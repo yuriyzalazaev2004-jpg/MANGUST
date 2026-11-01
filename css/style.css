@@ -1057,3 +1057,22 @@ a.dabro-support-glow {
  .modal{max-width:calc(100vw - 24px)!important}
 }
 @media(max-width:370px){.hero-actions{grid-template-columns:1fr!important}.hero-inner{min-height:650px}.artist-photo{width:min(100%,135px)!important}}
+
+/* DaBro: unified overlay hamburger menu and partner caption */
+.navbar .nav-container {position:relative;}
+.navbar .nav-burger {display:flex!important;align-items:center;justify-content:center;min-width:44px;min-height:44px;line-height:1;position:relative;z-index:3;}
+.navbar .nav-links,.navbar .nav-links.nav-open {position:absolute!important;top:calc(100% + 1px)!important;left:auto!important;right:0!important;width:min(360px,calc(100vw - 24px))!important;max-height:calc(100dvh - 75px);overflow-y:auto;flex-direction:column!important;align-items:stretch!important;gap:5px!important;padding:14px!important;background:#18202b!important;border:1px solid rgba(229,181,105,.5)!important;border-radius:0 0 18px 18px!important;box-shadow:0 16px 45px rgba(0,0,0,.35)!important;z-index:2;}
+.navbar .nav-links {display:none!important;}
+.navbar .nav-links.nav-open {display:flex!important;}
+.navbar .nav-links li {width:100%;}
+.navbar .nav-links a,.navbar .nav-links .nav-contact-link {display:block;width:100%;padding:13px 14px!important;border:0;border-radius:10px;background:transparent;color:#fff5e7!important;text-decoration:none;text-align:left;font:600 14px/1.4 inherit;cursor:pointer;}
+.navbar .nav-links .nav-contact-link {font-family:inherit;font-size:14px;font-weight:650;}
+.navbar .nav-links a:hover,.navbar .nav-links .nav-contact-link:hover,.navbar .nav-links .nav-contact-link:focus-visible {background:rgba(224,176,102,.18)!important;outline:1px solid rgba(224,176,102,.45);}
+.navbar .nav-links .nav-donate {background:linear-gradient(120deg,#c08a45,#89531f)!important;text-align:center!important;}
+.hero-badges,.hero-contact-badge {display:none!important;}
+.partner-placeholders .partner-logo--pd {height:auto!important;min-height:0!important;max-width:190px!important;width:190px!important;flex-direction:column!important;gap:9px!important;padding:13px!important;}
+.partner-placeholders .partner-logo--pd img {height:110px!important;max-height:110px!important;object-fit:contain!important;}
+.partner-caption {display:flex;flex-direction:column;gap:3px;text-align:center;line-height:1.25;color:#4d321b;}
+.partner-caption strong {font-size:13px;}
+.partner-caption span {font-size:12px;}
+@media(max-width:760px){.navbar .nav-links,.navbar .nav-links.nav-open{top:54px!important;right:0!important;}.hero-content{padding-bottom:65px!important;}.partner-placeholders .partner-logo--pd{width:165px!important;max-width:165px!important;}.partner-caption strong{font-size:12px;}}
