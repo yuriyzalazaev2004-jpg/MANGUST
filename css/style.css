@@ -1485,3 +1485,24 @@ a.dabro-support-glow {
   font-weight: 600 !important;
   opacity: 1 !important;
 }
+
+/* 01.11: Telegram mark, footer login alignment, exact matching goal gold */
+.nav-telegram-link, .footer-telegram-link { display: inline-flex !important; align-items: center; gap: 7px; }
+.telegram-icon { display: inline-block; width: 17px; height: 17px; flex: 0 0 17px; vertical-align: middle; }
+.footer-minimal .footer-links { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; flex: 1 1 auto; }
+.footer-minimal .footer-admin-login { margin-left: auto !important; padding-left: 18px; white-space: nowrap; }
+@media (max-width: 760px) {
+  .footer-minimal .footer-links { width: 100%; gap: 12px; }
+  .footer-minimal .footer-admin-login { margin-left: auto !important; }
+}
+/* Identical actual CSS color on both amount and every character of the supporting paragraph. */
+.support-message--premium .goal-number,
+.support-message--premium .goal-number small,
+.support-message--premium .goal-description--gold,
+.support-message--premium .goal-description--gold *,
+.support-message--premium .goal-description--gold .goal-unit-line {
+  color: #edca79 !important;
+  -webkit-text-fill-color: #edca79 !important;
+  background-image: none !important;
+  opacity: 1 !important;
+}
