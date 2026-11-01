@@ -355,6 +355,7 @@ function setupEventListeners() {
   });
   byId('bookingForm')?.addEventListener('submit', handleBooking);
   byId('openContact')?.addEventListener('click',()=>openModal('modalContact'));
+  byId('footerPartnerContact')?.addEventListener('click',()=>openModal('modalContact'));
   byId('closeContact')?.addEventListener('click',()=>closeModal('modalContact'));
   byId('contactForm')?.addEventListener('submit',sendContactMessage);
   byId('closeRegister')?.addEventListener('click', () => closeModal('modalRegister'));

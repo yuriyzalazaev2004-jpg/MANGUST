@@ -4,5 +4,5 @@
 window.APP_CONFIG = {
   SUPABASE_URL: 'https://ckzozdgwoeneunifzgca.supabase.co',
   SUPABASE_PUBLISHABLE_KEY: 'sb_publishable_tOoucaJXAtfOje0SwgbnOg_UV_CTgJM',
-  DONATION_URL: 'https://www.donationalerts.com/r/kinsem_darkdressed'
+  DONATION_URL: 'https://www.donationalerts.com/r/dabro_vmeste'
 };
