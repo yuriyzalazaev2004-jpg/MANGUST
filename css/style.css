@@ -952,3 +952,11 @@ a.dabro-support-glow {
 @media(prefers-reduced-motion:reduce){
  .hero .btn-donate-hero.dabro-support-glow,.donation-button.dabro-support-glow,a.dabro-support-glow{animation:none!important;}
 }
+
+/* Логотипы подразделений в блоке «Цель вечера» */
+.award-places{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;max-width:780px;margin:32px auto 0;align-items:stretch}
+.award-places .award-unit{margin:0;min-width:0;min-height:300px;padding:26px 22px 20px;border:1px solid rgba(203,166,91,.55);border-radius:22px;background:rgba(255,250,238,.09);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;box-shadow:0 12px 30px rgba(30,20,10,.09)}
+.award-places .award-unit img{display:block;width:100%;max-width:240px;height:220px;object-fit:contain;filter:drop-shadow(0 6px 14px rgba(0,0,0,.14))}
+.award-places .award-unit figcaption{font-size:clamp(14px,1.5vw,17px);font-weight:700;line-height:1.4;text-align:center;color:inherit}
+@media(max-width:540px){.award-places{gap:12px;margin-top:24px}.award-places .award-unit{min-height:215px;padding:14px 9px;gap:12px;border-radius:16px}.award-places .award-unit img{height:150px;max-width:100%}.award-places .award-unit figcaption{font-size:12px;line-height:1.35}}
+@media(max-width:360px){.award-places{grid-template-columns:1fr}.award-places .award-unit img{height:190px}}
