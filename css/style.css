@@ -1457,3 +1457,14 @@ a.dabro-support-glow {
 @media (prefers-reduced-motion: reduce) {
   .hero .hero-actions .btn-donate-hero.dabro-support-glow { animation: none !important; }
 }
+
+/* Goal supporting text: unified gold matching the 1 000 000 ₽ amount. */
+.support-message--premium .goal-description,
+.support-message--premium .goal-description *,
+.support-message--premium .goal-description .goal-unit-line,
+.support-message--premium .goal-description .goal-unit-emphasis {
+  color: #edca79 !important;
+  font-family: 'Inter', Arial, sans-serif !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+}
