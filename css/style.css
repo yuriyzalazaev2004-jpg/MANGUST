@@ -1358,3 +1358,19 @@ a.dabro-support-glow {
  .support-message--premium .award-unit figcaption{font-size:clamp(10px,2.8vw,12px)!important;min-height:42px!important;}
 }
 @media(max-width:350px){.goal-number{font-size:32px!important}.support-message--premium .unit-name-nowrap{white-space:normal!important;}}
+
+/* Increased contrast for the goal description on the dark green panel */
+.support-message--premium .goal-description {
+  color: #fffdf4 !important;
+  font-weight: 500 !important;
+  font-size: clamp(15px, 1.45vw, 18px) !important;
+  line-height: 1.65 !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,.28);
+}
+.support-message--premium .goal-unit-emphasis {
+  color: #ffe3a0 !important;
+  font-weight: 800 !important;
+}
+@media (max-width: 760px) {
+  .support-message--premium .goal-description { font-size: 15px !important; }
+}
