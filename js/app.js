@@ -402,6 +402,7 @@ function updateFormSeatsInfo() {
 // ===== BOOKING =====
 async function handleBooking(e) {
   e.preventDefault();
+  const bookingForm = e.currentTarget;
   if (!selectedSeats.length) return;
   if (!isSupabaseConfigured()) {
     alert('Подключение Supabase ещё не настроено.');
@@ -433,7 +434,7 @@ async function handleBooking(e) {
       .map(s => `${s.sector}: ряд ${s.row}, место ${s.seat}`).join('\n');
     closeModal('modalRegister');
     openModal('modalSuccess');
-    e.currentTarget.reset();
+    bookingForm.reset();
     await loadBookedSeats();
   } catch (error) {
     console.error(error);
