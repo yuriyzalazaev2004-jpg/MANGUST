@@ -1473,3 +1473,15 @@ a.dabro-support-glow {
 .nav-telegram-link { font-weight: 700; }
 .footer-telegram-link { color: inherit; text-decoration: underline; text-underline-offset: 4px; font-weight: 600; }
 .footer-telegram-link:hover, .nav-telegram-link:hover { color: #d7ad57; }
+
+/* Goal: force every line to match the amount's exact gold, overriding earlier rules. */
+.support-message--premium .goal-description--gold,
+.support-message--premium .goal-description--gold .goal-unit-line,
+.support-message--premium .goal-description--gold * {
+  color: #edca79 !important;
+  -webkit-text-fill-color: #edca79 !important;
+  background-image: none !important;
+  font-family: 'Inter', Arial, sans-serif !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+}
