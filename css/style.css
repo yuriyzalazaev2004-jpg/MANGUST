@@ -1468,3 +1468,8 @@ a.dabro-support-glow {
   font-weight: 600 !important;
   text-shadow: none !important;
 }
+
+/* Telegram channel in navigation and footer */
+.nav-telegram-link { font-weight: 700; }
+.footer-telegram-link { color: inherit; text-decoration: underline; text-underline-offset: 4px; font-weight: 600; }
+.footer-telegram-link:hover, .nav-telegram-link:hover { color: #d7ad57; }
