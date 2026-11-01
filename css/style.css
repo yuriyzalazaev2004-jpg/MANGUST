@@ -1438,3 +1438,22 @@ a.dabro-support-glow {
 @media (max-width: 360px) {
   .support-message--premium .goal-description .goal-unit-line { white-space: normal !important; }
 }
+
+/* Mobile hero donation CTA: match the footer donation button exactly. */
+@media (max-width: 760px) {
+  .hero .hero-actions .btn-donate-hero.dabro-support-glow {
+    background: linear-gradient(115deg,#73441e 0%,#a96b2e 30%,#c89446 52%,#9c612a 78%,#73441e 100%) !important;
+    background-size: 100% 100% !important;
+    color: #fff9e8 !important;
+    text-shadow: 0 1px 2px rgba(48,25,8,.32) !important;
+    border: 1px solid #e2b76a !important;
+    border-radius: 999px !important;
+    box-shadow: 0 5px 16px rgba(90,53,17,.24), 0 0 14px rgba(222,171,78,.35) !important;
+    animation: dabro-support-heartbeat 2.1s ease-in-out infinite !important;
+    transform-origin: center !important;
+    will-change: transform, box-shadow !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero-actions .btn-donate-hero.dabro-support-glow { animation: none !important; }
+}
