@@ -1125,3 +1125,22 @@ a.dabro-support-glow {
   .partner-placeholders .partner-logo--pd {width:175px!important;max-width:175px!important;}
 }
 @media (max-width:390px) {.hero-inner{padding-left:16px!important;padding-right:16px!important}.hero .hero-title{font-size:clamp(30px,8vw,36px)!important}}
+
+/* 2026-11-01: compact organizer captions and mobile CTA hierarchy */
+.partner-placeholders .partner-logo--pd .partner-caption {gap:1px!important;line-height:1.15!important;}
+.partner-placeholders .partner-logo--pd {gap:3px!important;}
+.partner-placeholders .partner-logo--pd .partner-caption strong {margin-bottom:0!important;}
+.partner-placeholders .partner-logo--pd .partner-caption span {margin-top:0!important;letter-spacing:.02em!important;}
+@media(max-width:760px) {
+  .hero .btn-primary {background:rgba(8,19,31,.32)!important;color:#fff8ef!important;border:1.5px solid #d9a763!important;box-shadow:none!important;backdrop-filter:blur(5px);}
+  .hero .btn-primary:hover,.hero .btn-primary:focus-visible {background:rgba(16,34,52,.62)!important;color:#fff!important;}
+  .hero .btn-donate-hero.dabro-support-glow {
+    background:linear-gradient(115deg,#bb7626 0%,#f4c76f 30%,#ffe9ac 50%,#d9952f 75%,#a86519 100%)!important;
+    background-size:200% 100%!important;
+    color:#392008!important;
+    border:1px solid #ffe2a0!important;
+    box-shadow:0 5px 16px rgba(158,98,22,.35),0 0 18px rgba(255,192,70,.36)!important;
+    animation:dabro-gold-pulse 2.6s ease-in-out infinite,dabro-gold-shine 5s linear infinite!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){.hero .btn-donate-hero.dabro-support-glow{animation:none!important;}}
