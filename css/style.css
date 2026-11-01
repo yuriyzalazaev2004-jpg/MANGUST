@@ -1175,3 +1175,141 @@ a.dabro-support-glow {
 /* Keep the full second unit designation together on desktop. */
 .unit-name-nowrap { white-space: nowrap; }
 @media (max-width: 480px) { .unit-name-nowrap { white-space: normal; } }
+
+/* 2026-11-01 — aligned insignia and organizer logos */
+.award-places {align-items:stretch!important;}
+.award-places .award-unit {
+  display:grid!important;
+  grid-template-rows:minmax(0,1fr) auto!important;
+  justify-items:center!important;
+  align-items:center!important;
+  gap:10px!important;
+  min-height:230px!important;
+  padding:16px 12px!important;
+}
+.award-places .award-unit > img {
+  width:148px!important;
+  height:148px!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+  margin:0 auto!important;
+}
+.award-places .award-unit > figcaption {
+  width:100%!important;
+  min-height:42px!important;
+  margin:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  font-size:13px!important;
+  line-height:1.3!important;
+}
+.organizers-section .partner-placeholders {
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  align-items:start!important;
+  justify-items:center!important;
+  gap:20px!important;
+}
+.organizers-section .partner-placeholders > .partner-logo,
+.organizers-section .partner-placeholders > .partner-logo--pd {
+  width:190px!important;
+  max-width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-start!important;
+  align-items:center!important;
+  gap:0!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.organizers-section .partner-placeholders > .partner-logo > img,
+.organizers-section .partner-placeholders > .partner-logo--pd > img {
+  display:block!important;
+  width:160px!important;
+  height:160px!important;
+  max-width:100%!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  margin:0 auto!important;
+  flex:none!important;
+}
+.organizers-section .partner-placeholders .partner-caption {
+  margin:3px 0 0!important;
+  padding:0!important;
+  gap:1px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  line-height:1.2!important;
+}
+.organizers-section .partner-placeholders .partner-caption strong,
+.organizers-section .partner-placeholders .partner-caption span {
+  margin:0!important;
+  padding:0!important;
+  line-height:1.2!important;
+}
+@media(max-width:600px) {
+  .award-places .award-unit {min-height:190px!important;padding:10px 7px!important;gap:6px!important;}
+  .award-places .award-unit > img {width:112px!important;height:112px!important;}
+  .award-places .award-unit > figcaption {min-height:44px!important;font-size:11px!important;}
+  .organizers-section .partner-placeholders {gap:12px!important;}
+  .organizers-section .partner-placeholders > .partner-logo > img,
+  .organizers-section .partner-placeholders > .partner-logo--pd > img {width:125px!important;height:125px!important;}
+  .organizers-section .partner-placeholders > .partner-logo,
+  .organizers-section .partner-placeholders > .partner-logo--pd {width:150px!important;}
+}
+
+/* DaBro: fundraising display typography + consistent partner/unit cards */
+.support-message .fundraising-headline {
+  display:flex!important; flex-direction:column!important; align-items:center!important;
+  gap:5px!important; margin:18px auto 22px!important; max-width:950px!important;
+  text-align:center!important; color:#116c45!important; text-shadow:none!important;
+  font-family: "Arial", "Helvetica Neue", sans-serif!important;
+  letter-spacing:-.055em!important; line-height:1.06!important;
+}
+.fundraising-prefix {
+  font-size:clamp(20px,2.5vw,32px)!important; font-weight:600!important;
+  letter-spacing:.025em!important; color:#34775b!important;
+}
+.fundraising-amount {
+  display:block!important; font-size:clamp(48px,7.5vw,96px)!important;
+  font-weight:900!important; letter-spacing:-.075em!important;
+  line-height:1.04!important; white-space:nowrap!important;
+  color:#118553!important;
+}
+.fundraising-ruble {font-size:.72em!important; vertical-align:.07em!important; color:#0c6440!important;}
+.fundraising-purpose {
+  font-size:clamp(23px,3.7vw,49px)!important; font-weight:800!important;
+  letter-spacing:-.045em!important; line-height:1.14!important;
+  color:#175f42!important;
+}
+.award-places {display:flex!important; justify-content:center!important; align-items:stretch!important; flex-wrap:wrap!important; gap:14px!important;}
+.award-places .award-unit {width:190px!important; min-height:238px!important; grid-template-rows:152px 48px!important; gap:8px!important; box-sizing:border-box!important;}
+.award-places .award-unit > img {width:150px!important;height:150px!important;object-fit:contain!important;}
+.award-places .award-unit > figcaption {height:48px!important;min-height:48px!important; font-size:12px!important; font-weight:700!important;}
+.organizers-section .partner-placeholders > .partner-logo {min-height:205px!important;}
+.organizers-section .partner-placeholders > .partner-logo > img {width:160px!important;height:160px!important;}
+.organizers-section .partner-placeholders .partner-caption {min-height:40px!important; justify-content:flex-start!important; margin-top:4px!important;}
+.organizers-section .partner-placeholders .partner-caption strong {font-size:14px!important;}
+.organizers-section .partner-placeholders .partner-caption span {font-size:12px!important;}
+@media(max-width:600px){
+  .support-message .fundraising-headline {gap:6px!important; margin:14px auto 20px!important;}
+  .fundraising-prefix {font-size:20px!important;}
+  .fundraising-amount {font-size:clamp(35px,10vw,54px)!important;letter-spacing:-.07em!important;}
+  .fundraising-purpose {font-size:clamp(21px,6.1vw,30px)!important;}
+  .award-places {gap:10px!important; flex-wrap:nowrap!important;}
+  .award-places .award-unit {width:min(48%,190px)!important;min-height:195px!important;grid-template-rows:116px 48px!important;gap:6px!important;}
+  .award-places .award-unit > img {width:114px!important;height:114px!important;}
+  .award-places .award-unit > figcaption {font-size:10.5px!important;height:48px!important;min-height:48px!important;}
+  .organizers-section .partner-placeholders > .partner-logo {min-height:175px!important;}
+  .organizers-section .partner-placeholders > .partner-logo > img {width:125px!important;height:125px!important;}
+  .organizers-section .partner-placeholders .partner-caption strong {font-size:12px!important;}
+}
