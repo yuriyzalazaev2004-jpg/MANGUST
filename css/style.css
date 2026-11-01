@@ -1144,3 +1144,30 @@ a.dabro-support-glow {
   }
 }
 @media(prefers-reduced-motion:reduce){.hero .btn-donate-hero.dabro-support-glow{animation:none!important;}}
+
+
+/* 2026-11-01: equal-size organizer logos, tightly stacked PD caption */
+.organizers-section .partner-placeholders .partner-logo--pd {
+  display:flex!important;flex-direction:column!important;align-items:center!important;
+  justify-content:flex-start!important;gap:0!important;
+  width:190px!important;max-width:190px!important;height:auto!important;min-height:0!important;
+  padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;
+}
+.organizers-section .partner-placeholders .partner-logo--pd > img {
+  display:block!important;width:150px!important;height:150px!important;max-width:none!important;
+  max-height:none!important;object-fit:contain!important;margin:0 auto 2px!important;
+}
+.organizers-section .partner-placeholders .partner-logo--pd .partner-caption {
+  display:flex!important;flex-direction:column!important;align-items:center!important;
+  justify-content:center!important;gap:1px!important;line-height:1.15!important;margin:0!important;
+}
+.organizers-section .partner-placeholders .partner-logo--pd .partner-caption strong,
+.organizers-section .partner-placeholders .partner-logo--pd .partner-caption span {
+  display:block!important;margin:0!important;padding:0!important;min-height:0!important;
+  border:0!important;background:transparent!important;box-shadow:none!important;
+}
+.support-section .support-message h2 {color:#218449!important;text-shadow:none!important;}
+@media(max-width:760px){
+  .organizers-section .partner-placeholders .partner-logo--pd {width:155px!important;max-width:155px!important;}
+  .organizers-section .partner-placeholders .partner-logo--pd > img {width:125px!important;height:125px!important;}
+}
