@@ -1506,3 +1506,10 @@ a.dabro-support-glow {
   background-image: none !important;
   opacity: 1 !important;
 }
+
+/* Goal section: updated message */
+.support-message--premium .goal-statement{display:block;max-width:680px;font-family:Arial,Helvetica,sans-serif;font-size:clamp(29px,3.9vw,56px);font-weight:800;line-height:1.13;letter-spacing:-.035em;color:#edca79;text-wrap:balance;}
+@media(max-width:767px){.support-message--premium .goal-statement{font-size:clamp(27px,7.4vw,41px);line-height:1.15;text-align:center;}}
+
+/* Goal statement: exact former 1 000 000 ₽ gold */
+.support-message--premium .goal-heading .goal-statement { color: #edca79 !important; -webkit-text-fill-color: #edca79 !important; background-image: none !important; }
