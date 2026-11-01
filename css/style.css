@@ -1076,3 +1076,52 @@ a.dabro-support-glow {
 .partner-caption strong {font-size:13px;}
 .partner-caption span {font-size:12px;}
 @media(max-width:760px){.navbar .nav-links,.navbar .nav-links.nav-open{top:54px!important;right:0!important;}.hero-content{padding-bottom:65px!important;}.partner-placeholders .partner-logo--pd{width:165px!important;max-width:165px!important;}.partner-caption strong{font-size:12px;}}
+
+
+/* 2026-11-01: responsive navigation, legible cinematic hero, PD caption */
+@media (min-width: 761px) {
+  .navbar .nav-burger {display:none!important;}
+  .navbar .nav-links,.navbar .nav-links.nav-open {
+    position:static!important;display:flex!important;width:auto!important;max-height:none!important;
+    overflow:visible!important;flex-direction:row!important;align-items:center!important;
+    gap:clamp(5px,1vw,15px)!important;padding:0!important;background:transparent!important;
+    border:0!important;border-radius:0!important;box-shadow:none!important;
+  }
+  .navbar .nav-links li {width:auto!important;}
+  .navbar .nav-links a,.navbar .nav-links .nav-contact-link {
+    width:auto!important;color:#4b321e!important;white-space:nowrap;
+    padding:10px clamp(6px,.8vw,13px)!important;font-size:clamp(12px,1vw,15px)!important;
+    text-align:center!important;
+  }
+  .navbar .nav-links .nav-donate {color:#fff!important;}
+  .navbar .nav-links .nav-contact-link {border:1px solid rgba(138,93,49,.4)!important;background:transparent!important;}
+}
+/* The PD logo is an image; the name and category are plain text, not a second card. */
+.partner-placeholders .partner-logo--pd {background:transparent!important;border:0!important;box-shadow:none!important;outline:0!important;padding:0!important;}
+.partner-placeholders .partner-logo--pd .partner-caption,
+.partner-placeholders .partner-logo--pd .partner-caption * {
+  background:transparent!important;border:0!important;box-shadow:none!important;outline:0!important;
+  padding:0!important;margin:0!important;
+}
+.partner-placeholders .partner-logo--pd .partner-caption {gap:5px!important;align-items:center;}
+.partner-placeholders .partner-logo--pd .partner-caption strong {font-size:14px!important;color:#53361e!important;}
+.partner-placeholders .partner-logo--pd .partner-caption span {font-size:12px!important;color:#84603c!important;}
+@media (max-width:760px) {
+  .navbar .nav-burger {display:flex!important;}
+  .hero {background:#0a1725!important;isolation:isolate;min-height:0!important;padding:0!important;}
+  .hero-media {position:absolute!important;inset:0!important;z-index:-2!important;}
+  .hero-media img {filter:saturate(1.07) contrast(1.08) brightness(.77)!important;object-fit:cover!important;object-position:center top!important;}
+  .hero-overlay {position:absolute!important;inset:0!important;z-index:-1!important;background:linear-gradient(to bottom,rgba(7,16,28,.14) 0%,rgba(7,16,28,.36) 22%,rgba(7,16,28,.83) 49%,#0b1725 88%,#0b1725 100%)!important;}
+  .hero-inner {min-height:min(820px,calc(100svh - 64px))!important;display:flex!important;align-items:flex-end!important;padding:0 20px 34px!important;}
+  .hero-content {width:100%!important;max-width:520px!important;padding:clamp(190px,36vh,320px) 0 0!important;}
+  .hero .hero-subtitle {color:#e9bb78!important;font-size:clamp(17px,5vw,23px)!important;letter-spacing:.10em!important;text-shadow:0 2px 16px #0008!important;margin:0 0 13px!important;}
+  .hero .hero-title {color:#fff6e9!important;font-size:clamp(33px,8.3vw,49px)!important;line-height:1.08!important;letter-spacing:-.035em!important;text-shadow:0 3px 20px rgba(0,0,0,.58)!important;margin:0 0 16px!important;overflow-wrap:normal!important;}
+  .hero .hero-desc {color:#f1e9e0!important;font-size:clamp(14px,3.7vw,16px)!important;line-height:1.55!important;text-shadow:0 2px 10px #0009!important;margin:0 0 22px!important;}
+  .hero .hero-actions {display:grid!important;grid-template-columns:1fr!important;gap:11px!important;}
+  .hero .hero-actions a {width:100%!important;min-height:52px!important;border-radius:14px!important;font-size:15px!important;font-weight:750!important;display:flex!important;align-items:center!important;justify-content:center!important;}
+  .hero .btn-primary {background:linear-gradient(110deg,#ffe1a2,#cf9143)!important;color:#251b14!important;border:1px solid #f6d29a!important;box-shadow:0 8px 22px #0005!important;}
+  .hero .btn-donate-hero.dabro-support-glow {background:rgba(8,19,31,.68)!important;color:#fff8ef!important;border:1px solid #d9a763!important;box-shadow:none!important;animation:none!important;}
+  .hero .donation-caption {color:#d7dce3!important;font-size:12px!important;line-height:1.5!important;text-shadow:0 2px 9px #0008!important;margin-top:16px!important;}
+  .partner-placeholders .partner-logo--pd {width:175px!important;max-width:175px!important;}
+}
+@media (max-width:390px) {.hero-inner{padding-left:16px!important;padding-right:16px!important}.hero .hero-title{font-size:clamp(30px,8vw,36px)!important}}
