@@ -1374,3 +1374,23 @@ a.dabro-support-glow {
 @media (max-width: 760px) {
   .support-message--premium .goal-description { font-size: 15px !important; }
 }
+
+/* 01.11: compact, contemporary hero date typography */
+.hero .hero-subtitle {
+  font-family: 'Manrope', 'Inter', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: clamp(18px, 2.15vw, 27px) !important;
+  letter-spacing: .015em !important;
+  line-height: 1.15 !important;
+  font-variant-numeric: lining-nums tabular-nums;
+  text-transform: uppercase;
+  color: #eec58a !important;
+  text-shadow: 0 2px 14px rgba(0,0,0,.32) !important;
+}
+@media (max-width: 760px) {
+  .hero .hero-subtitle {
+    font-size: clamp(19px, 5.1vw, 25px) !important;
+    letter-spacing: .01em !important;
+    margin-bottom: 12px !important;
+  }
+}
