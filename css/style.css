@@ -1171,3 +1171,7 @@ a.dabro-support-glow {
   .organizers-section .partner-placeholders .partner-logo--pd {width:155px!important;max-width:155px!important;}
   .organizers-section .partner-placeholders .partner-logo--pd > img {width:125px!important;height:125px!important;}
 }
+
+/* Keep the full second unit designation together on desktop. */
+.unit-name-nowrap { white-space: nowrap; }
+@media (max-width: 480px) { .unit-name-nowrap { white-space: normal; } }
