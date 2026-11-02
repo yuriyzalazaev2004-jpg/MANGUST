@@ -1,0 +1,21 @@
+
+name: Send booking confirmations
+
+on:
+  workflow_dispatch:
+
+jobs:
+  send-emails:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send booking confirmation emails
+        env:
+          FUNCTION_URL: ${{ secrets.BOOKING_MAIL_FUNCTION_URL }}
+          CRON_SECRET: ${{ secrets.BOOKING_MAIL_CRON_SECRET }}
+        run: |
+          curl --fail-with-body --show-error --silent \
+            --request POST \
+            --url "$FUNCTION_URL" \
+            --header "Content-Type: application/json" \
+            --header "x-cron-secret: $CRON_SECRET" \
+            --data '{}'
