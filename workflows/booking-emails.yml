@@ -1,0 +1,17 @@
+name: Send booking confirmations
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger email worker
+        env:
+          FUNCTION_URL: ${{ secrets.BOOKING_EMAIL_FUNCTION_URL }}
+          CRON_SECRET: ${{ secrets.BOOKING_MAIL_CRON_SECRET }}
+        run: |
+          curl --fail-with-body --retry 2 --request POST \
+            --header "x-cron-secret: ${CRON_SECRET}" \
+            "${FUNCTION_URL}"
