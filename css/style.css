@@ -1513,3 +1513,9 @@ a.dabro-support-glow {
 
 /* Goal statement: exact former 1 000 000 ₽ gold */
 .support-message--premium .goal-heading .goal-statement { color: #edca79 !important; -webkit-text-fill-color: #edca79 !important; background-image: none !important; }
+
+/* Почётные гости — описание и одиночная карточка */
+.guests-grid { grid-template-columns:repeat(auto-fit,minmax(230px,270px)); }
+.guest-card .guest-description { margin:0; padding:0 15px 19px; font-size:14px; line-height:1.55; }
+.guest-card h3 { padding-bottom:8px; font-size:19px; }
+@media(max-width:520px) { .guests-grid { grid-template-columns:minmax(0,1fr); max-width:340px; } }
