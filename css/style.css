@@ -1519,3 +1519,8 @@ a.dabro-support-glow {
 .guest-card .guest-description { margin:0; padding:0 15px 19px; font-size:14px; line-height:1.55; }
 .guest-card h3 { padding-bottom:8px; font-size:19px; }
 @media(max-width:520px) { .guests-grid { grid-template-columns:minmax(0,1fr); max-width:340px; } }
+
+/* Fix: guest fallback must not cover successfully loaded photos */
+.guest-photo img { position:relative; z-index:2; }
+.guest-photo img + .photo-fallback { display:none; }
+.guest-photo img[style*="display: none"] + .photo-fallback { display:grid; }
