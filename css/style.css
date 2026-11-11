@@ -1575,3 +1575,11 @@ a.dabro-support-glow {
 .media-team-person strong{font-size:18px;color:#fff7e7}
 .media-team-person span{font-size:14px;color:#e3d9cb;line-height:1.5}
 @media(max-width:600px){.media-section{padding:18px 16px 48px}.media-team-card{gap:16px;padding:15px;align-items:flex-start}.media-team-photo{width:110px;min-width:110px}.media-team-info h3{font-size:20px;margin-bottom:12px}.media-team-person strong{font-size:15px}.media-team-person span{font-size:12px}.media-team-kicker{font-size:10px}}
+
+/* Media team: round portrait and broadcaster logo */
+.media-team-photo{width:190px;min-width:190px;aspect-ratio:1/1;border-radius:50%;border:2px solid rgba(231,190,108,.6);box-shadow:0 0 0 5px rgba(231,190,108,.07)}
+.media-team-photo img{object-fit:cover;object-position:center 24%}
+.media-team-brand{display:flex;align-items:center;gap:13px;margin-bottom:12px}
+.media-team-brand img{width:60px;height:60px;object-fit:contain;flex:none}
+.media-team-brand .media-team-kicker{margin:0}
+@media(max-width:600px){.media-team-card{flex-direction:column;align-items:center;text-align:center}.media-team-photo{width:156px;min-width:156px}.media-team-info{width:100%}.media-team-brand{justify-content:center}.media-team-brand img{width:46px;height:46px}.media-team-person{align-items:center}}
