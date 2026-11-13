@@ -1771,3 +1771,21 @@ a.dabro-support-glow {
 .media-photographer strong{font-size:21px}
 .media-photographer span{font-size:15px;color:#e3d9cb}
 @media(max-width:600px){.media-photographer{padding:15px;gap:14px}.media-photographer img{width:85px;height:85px}.media-photographer strong{font-size:17px}}
+
+/* Media: equal visual weight for photographer and TV team */
+.media-photographer{gap:32px;padding:24px;border-radius:22px;min-height:238px;box-sizing:border-box}
+.media-photographer img{width:190px;height:190px;min-width:190px;aspect-ratio:1/1;box-shadow:0 0 0 5px rgba(231,190,108,.07)}
+@media(max-width:600px){
+ .media-photographer{flex-direction:column;align-items:center;text-align:center;gap:16px;padding:15px;min-height:0}
+ .media-photographer img{width:156px;height:156px;min-width:156px}
+ .media-photographer>div{align-items:center}
+}
+
+/* Media portrait parity - final override */
+.media-section .media-team-photo,
+.media-section .media-photographer > img {width:190px !important;height:190px !important;min-width:190px !important;max-width:190px !important;flex:0 0 190px !important;aspect-ratio:1/1 !important;border-radius:50% !important;object-fit:cover !important;box-sizing:border-box !important;}
+.media-section .media-photographer{display:flex;align-items:center;gap:32px;min-height:238px;padding:24px;box-sizing:border-box;}
+@media(max-width:600px){
+.media-section .media-team-photo, .media-section .media-photographer > img {width:156px !important;height:156px !important;min-width:156px !important;max-width:156px !important;flex:0 0 156px !important;}
+.media-section .media-photographer{flex-direction:column;align-items:center;text-align:center;gap:16px;min-height:0;}
+}
