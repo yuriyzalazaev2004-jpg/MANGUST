@@ -1683,3 +1683,9 @@ a.dabro-support-glow {
  .organizers-section .partner-placeholders > .partner-logo--pd > img,
  .organizers-section .partner-placeholders > .partner-logo--optomaksus > img{width:105px!important;height:70px!important;max-width:105px!important;max-height:70px!important;}
 }
+
+/* Guests: restore top navigation arrows; wheel scrolls the page normally */
+.guests-section .guests-carousel-controls {display:flex!important;justify-content:flex-end;gap:10px;margin:-42px 0 16px;position:relative;z-index:2;}
+.guests-section .guests-carousel-arrow:disabled {opacity:.35;cursor:default;}
+.guests-section .guests-grid {scroll-behavior:smooth!important;}
+@media(max-width:600px) {.guests-section .guests-carousel-controls {margin:0 0 12px;}}
