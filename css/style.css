@@ -1632,3 +1632,54 @@ a.dabro-support-glow {
   min-width:min(68vw,240px)!important; max-width:min(68vw,240px)!important;
  }
 }
+
+
+/* Compact integrated organizers and partners: no enclosing card or logo tiles */
+.organizers-section {padding:34px 20px 28px!important;}
+.organizers-section .organizers-card {
+ display:flex!important;flex-direction:column!important;align-items:center!important;
+ gap:18px!important;max-width:1200px!important;margin:0 auto!important;
+ padding:0!important;background:transparent!important;border:0!important;
+ border-radius:0!important;box-shadow:none!important;color:inherit!important;
+}
+.organizers-section .organizers-card h2 {
+ margin:0!important;text-align:center!important;font-size:clamp(22px,2.8vw,32px)!important;
+}
+.organizers-section .partner-placeholders {
+ display:flex!important;flex-wrap:wrap!important;justify-content:center!important;
+ align-items:flex-start!important;gap:20px 32px!important;width:100%!important;
+}
+.organizers-section .partner-placeholders > .partner-logo,
+.organizers-section .partner-placeholders > .partner-logo--pd,
+.organizers-section .partner-placeholders > .partner-logo--optomaksus {
+ display:flex!important;flex-direction:column!important;align-items:center!important;
+ justify-content:flex-start!important;flex:0 1 180px!important;
+ width:180px!important;height:auto!important;min-height:0!important;max-width:180px!important;
+ margin:0!important;padding:0!important;gap:6px!important;
+ background:transparent!important;border:0!important;outline:0!important;
+ border-radius:0!important;box-shadow:none!important;
+}
+.organizers-section .partner-placeholders > .partner-logo > img,
+.organizers-section .partner-placeholders > .partner-logo--pd > img,
+.organizers-section .partner-placeholders > .partner-logo--optomaksus > img {
+ width:120px!important;height:82px!important;max-width:120px!important;
+ max-height:82px!important;object-fit:contain!important;background:transparent!important;
+ border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important;
+}
+.organizers-section .partner-placeholders .partner-caption {
+ display:flex!important;flex-direction:column!important;align-items:center!important;
+ gap:2px!important;margin:0!important;min-height:0!important;text-align:center!important;
+ background:transparent!important;border:0!important;box-shadow:none!important;
+}
+.organizers-section .partner-placeholders .partner-caption strong {font-size:12px!important;line-height:1.3!important;}
+.organizers-section .partner-placeholders .partner-caption span {font-size:11px!important;line-height:1.3!important;}
+@media(max-width:650px){
+ .organizers-section{padding:28px 14px 20px!important;}
+ .organizers-section .partner-placeholders{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px 10px!important;justify-items:center!important;}
+ .organizers-section .partner-placeholders > .partner-logo,
+ .organizers-section .partner-placeholders > .partner-logo--pd,
+ .organizers-section .partner-placeholders > .partner-logo--optomaksus{width:100%!important;max-width:160px!important;flex:none!important;}
+ .organizers-section .partner-placeholders > .partner-logo > img,
+ .organizers-section .partner-placeholders > .partner-logo--pd > img,
+ .organizers-section .partner-placeholders > .partner-logo--optomaksus > img{width:105px!important;height:70px!important;max-width:105px!important;max-height:70px!important;}
+}
