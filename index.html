@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=dabro-guests-arrows-20261113">
+  <link rel="stylesheet" href="css/style.css?v=dabro-guests-vertical-media-20261113">
 </head>
 <body>
   <nav class="navbar">
@@ -105,11 +105,7 @@
       <div class="section-head left-head">
         <h2 class="section-title">Гости вечера</h2>
       </div>
-      <div class="guests-carousel-controls" aria-label="Переключение гостей">
-        <button class="guests-carousel-arrow" id="guestsPrev" type="button" aria-label="Предыдущие гости">&#8592;</button>
-        <button class="guests-carousel-arrow" id="guestsNext" type="button" aria-label="Следующие гости">&#8594;</button>
-      </div>
-      <div class="guests-grid" id="guestsCarousel" tabindex="0" aria-label="Гости вечера, горизонтальная прокрутка">
+      <div class="guests-grid" id="guestsCarousel" tabindex="0" aria-label="Гости вечера, вертикальная прокрутка">
         <article class="guest-card">
           <div class="guest-photo"><img src="images/guests/yana-poplavskaya.jpg" alt="Яна Поплавская" loading="lazy" onerror="this.style.display='none'"><span class="photo-fallback">ЯП</span></div>
           <h3>Яна Поплавская</h3>
@@ -150,6 +146,11 @@
           <h3>Антон Карпов</h3>
           <p class="guest-description">Военный корреспондент<br>Писатель<br>Член Союза писателей России</p>
         </article>
+        <article class="guest-card">
+          <div class="guest-photo"><img src="images/guests/igor-tarasov.png" alt="Игорь Тарасов" loading="lazy" onerror="this.style.display='none'"><span class="photo-fallback">ИТ</span></div>
+          <h3>Игорь Тарасов</h3>
+          <p class="guest-description">Вокалист группы «Лампасы»</p>
+        </article>
       </div>
     </section>
 
@@ -166,6 +167,10 @@
           <div class="media-team-person"><strong>Инга Панкратова</strong><span>Шеф-редактор телеканала «Долгопрудный»</span></div>
           <div class="media-team-person"><strong>Сергей Валюков</strong><span>Оператор телеканала «Долгопрудный»</span></div>
         </div>
+      </div>
+      <div class="media-photographer">
+        <img src="images/media/mikhail-terekhin.png" alt="Михаил Терёхин — фотограф" loading="lazy">
+        <div><strong>Михаил Терёхин</strong><span>Фотограф</span></div>
       </div>
     </section>
 
@@ -258,27 +263,6 @@
   </div></div>
 
   <footer class="footer"><div class="footer-minimal"><div><strong>ДаБро</strong><span>«Золотое кольцо» · Москва, Тимирязевская, 17</span></div><span class="footer-links"><button type="button" id="footerPartnerContact" class="footer-partner-link">Хотите стать партнёром? Свяжитесь с организаторами</button><a class="footer-telegram-link" href="https://t.me/dabrovmeste" target="_blank" rel="noopener noreferrer"><svg class="telegram-icon" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" focusable="false"><path fill="currentColor" d="M21.9 4.6 18.6 20c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.2L18.5 6c.4-.4-.1-.6-.6-.3L6 13.2l-5-1.6c-1.1-.3-1.1-1 .2-1.5L20.3 2.7c1.2-.5 2.1.3 1.6 1.9Z"/></svg><span>Мы в Telegram · @dabrovmeste</span></a><a class="footer-admin-login" href="admin.html">Вход</a></span></div></footer>
-  <script>
-    (function () {
-      const track = document.getElementById('guestsCarousel');
-      const prev = document.getElementById('guestsPrev');
-      const next = document.getElementById('guestsNext');
-      if (!track || !prev || !next) return;
-      const step = () => {
-        const card = track.querySelector('.guest-card');
-        return card ? card.getBoundingClientRect().width + 16 : 260;
-      };
-      const update = () => {
-        prev.disabled = track.scrollLeft <= 2;
-        next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
-      };
-      prev.addEventListener('click', () => track.scrollBy({left: -step(), behavior: 'smooth'}));
-      next.addEventListener('click', () => track.scrollBy({left: step(), behavior: 'smooth'}));
-      track.addEventListener('scroll', update, {passive:true});
-      window.addEventListener('resize', update);
-      update();
-    })();
-  </script>
-  <script src="js/config.js?v=17"></script><script src="js/app.js?v=dabro-menu-20261101"></script>
+<script src="js/config.js?v=17"></script><script src="js/app.js?v=dabro-menu-20261101"></script>
 </body>
 </html>
