@@ -1604,3 +1604,31 @@ a.dabro-support-glow {
  .guests-section .guests-grid {display:flex!important;grid-template-columns:none!important;gap:12px!important;max-width:100%!important;}
  .guests-section .guests-grid .guest-card {flex:0 0 min(65vw,245px)!important;width:min(65vw,245px)!important;max-width:none!important;}
 }
+
+/* Guests: exactly one horizontally scrollable row on every screen size */
+.guests-section .guests-carousel-controls { display:none!important; }
+.guests-section .guests-grid {
+ display:flex!important; flex-direction:row!important; flex-wrap:nowrap!important;
+ grid-template-columns:none!important; align-items:stretch!important;
+ overflow-x:scroll!important; overflow-y:hidden!important;
+ width:100%!important; max-width:100%!important; gap:16px!important;
+ scroll-snap-type:x proximity; scroll-behavior:auto;
+ scrollbar-width:auto; scrollbar-color:#ad7d41 #eee1cb;
+ touch-action:pan-x pan-y; -webkit-overflow-scrolling:touch;
+ padding:5px 3px 15px!important;
+}
+.guests-section .guests-grid::-webkit-scrollbar {height:11px;}
+.guests-section .guests-grid::-webkit-scrollbar-track {background:#eee1cb;border-radius:10px;}
+.guests-section .guests-grid::-webkit-scrollbar-thumb {background:#ad7d41;border-radius:10px;border:2px solid #eee1cb;}
+.guests-section .guests-grid > .guest-card {
+ display:block!important; flex:0 0 245px!important; width:245px!important;
+ min-width:245px!important; max-width:245px!important;
+ scroll-snap-align:start;
+}
+@media(max-width:600px) {
+ .guests-section .guests-grid {gap:12px!important;}
+ .guests-section .guests-grid > .guest-card {
+  flex:0 0 min(68vw,240px)!important; width:min(68vw,240px)!important;
+  min-width:min(68vw,240px)!important; max-width:min(68vw,240px)!important;
+ }
+}
