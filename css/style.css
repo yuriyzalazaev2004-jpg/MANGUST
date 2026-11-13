@@ -1591,3 +1591,16 @@ a.dabro-support-glow {
   .artists-grid .artist-photo { width: min(185px, 100%); }
   .artists-grid .artist-card h3 { font-size: 22px; }
 }
+
+/* Horizontal guest carousel: desktop arrows, mobile swipe */
+.guests-section {position:relative;}
+.guests-section .guests-carousel-controls {display:flex;justify-content:flex-end;gap:10px;margin:-42px 0 16px;position:relative;z-index:2;}
+.guests-section .guests-carousel-arrow {display:grid;place-items:center;width:42px;height:42px;border:1px solid #d7b780;border-radius:50%;background:#fffaf1;color:#81511f;font-size:22px;cursor:pointer;transition:background .2s,color .2s;}
+.guests-section .guests-carousel-arrow:hover {background:#9b6a30;color:white;}
+.guests-section .guests-grid {display:flex!important;flex-wrap:nowrap!important;grid-template-columns:none!important;gap:18px!important;width:100%!important;max-width:100%!important;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:2px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:4px 2px 20px;scrollbar-width:thin;scrollbar-color:#c7a36e transparent;}
+.guests-section .guests-grid .guest-card {flex:0 0 clamp(205px,22vw,265px)!important;width:clamp(205px,22vw,265px)!important;min-width:0!important;max-width:none!important;scroll-snap-align:start;}
+@media(max-width:600px) {
+ .guests-section .guests-carousel-controls {margin:0 0 12px;}
+ .guests-section .guests-grid {display:flex!important;grid-template-columns:none!important;gap:12px!important;max-width:100%!important;}
+ .guests-section .guests-grid .guest-card {flex:0 0 min(65vw,245px)!important;width:min(65vw,245px)!important;max-width:none!important;}
+}
