@@ -1732,3 +1732,33 @@ a.dabro-support-glow {
 .media-section .smooth-person strong {font-size:16px;line-height:1.3;}
 .media-section .smooth-person span {font-size:13px;line-height:1.45;color:#e9d7ba;}
 @media(max-width:650px){.media-section .media-photographer-card .media-team-photo{width:150px;min-width:150px;max-width:150px;flex-basis:150px;}.media-section .smooth-people{grid-template-columns:1fr;}}
+
+/* 2026-11-23 — equal spacing and consistent round portraits in all media cards */
+.media-section .media-team-card {margin:0 0 22px!important;gap:32px;min-width:0;}
+.media-section .media-team-card:last-child {margin-bottom:0!important;}
+.media-section .media-team-card .media-team-photo {
+ width:190px!important;min-width:190px!important;max-width:190px!important;
+ height:190px!important;aspect-ratio:1/1!important;flex:0 0 190px!important;
+ border-radius:50%!important;overflow:hidden!important;
+ border:2px solid rgba(231,190,108,.6);background:#242c39;
+}
+.media-section .media-team-card .media-team-photo img {
+ display:block;width:100%!important;height:100%!important;
+ max-width:100%!important;max-height:100%!important;object-fit:cover!important;
+}
+.media-section .media-team-card .media-team-info {min-width:0;flex:1;}
+.media-section .media-team-card .media-team-person {display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:14px;}
+.media-section .media-team-card .media-team-person strong,
+.media-section .media-team-card .media-team-person span {display:block;}
+.media-section .media-team-photo--placeholder {
+ display:flex;align-items:center;justify-content:center;
+ background:linear-gradient(145deg,#293344,#131e2c)!important;
+ border-style:dashed!important;
+}
+.media-section .media-team-photo--placeholder span {color:#e9c77f;font-size:13px;letter-spacing:.04em;text-align:center;}
+.media-section .smooth-second-person .media-team-info h3 {margin-bottom:8px;}
+@media(max-width:600px){
+ .media-section .media-team-card{gap:18px;flex-direction:column;align-items:center;text-align:center;}
+ .media-section .media-team-card .media-team-photo{width:156px!important;min-width:156px!important;max-width:156px!important;height:156px!important;flex:0 0 156px!important;}
+ .media-section .media-team-card .media-team-person{align-items:center;}
+}
