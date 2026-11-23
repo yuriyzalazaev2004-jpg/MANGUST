@@ -1842,3 +1842,22 @@ a.dabro-support-glow {
 /* Завод Наград: partner link matches the existing logo grid */
 .organizers-section .partner-placeholders > .partner-logo--zavod { text-decoration:none!important; color:inherit!important; }
 .organizers-section .partner-placeholders > .partner-logo--zavod:hover { opacity:.86; }
+
+/* 2026-11-23: Guest list scrolls vertically, all nine guests visible */
+.guests-section .guests-grid {
+ display:grid!important; grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ flex-direction:unset!important; flex-wrap:unset!important;
+ overflow-x:hidden!important; overflow-y:auto!important;
+ max-height:570px!important; height:auto!important; max-width:100%!important; width:100%!important;
+ gap:14px!important; padding:8px 10px 14px!important;
+ scroll-snap-type:none!important; scroll-behavior:smooth!important;
+ overscroll-behavior-y:contain; touch-action:pan-y; scrollbar-width:thin; scrollbar-color:#b48b4b transparent;
+}
+.guests-section .guests-grid > .guest-card {
+ flex:none!important; width:100%!important; min-width:0!important; max-width:none!important;
+ scroll-snap-align:none!important; padding:0!important;
+}
+.guests-section .guests-grid .guest-photo { aspect-ratio:4/3!important; height:auto!important; min-height:0!important; }
+.guests-section .guests-grid .guest-photo img {width:100%!important;height:100%!important;object-fit:cover!important;}
+@media(max-width:800px){.guests-section .guests-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;max-height:560px!important;}}
+@media(max-width:480px){.guests-section .guests-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;max-height:490px!important;padding:5px!important;} .guests-section .guests-grid .guest-card h3{font-size:14px!important;} .guests-section .guests-grid .guest-description{font-size:12px!important;}}
