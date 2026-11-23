@@ -1838,3 +1838,7 @@ a.dabro-support-glow {
  .media-section .smooth-media-combined .smooth-representative-details{align-items:center!important;}
  .media-section .media-logo-panel{width:190px!important;min-width:190px!important;}
 }
+
+/* Завод Наград: partner link matches the existing logo grid */
+.organizers-section .partner-placeholders > .partner-logo--zavod { text-decoration:none!important; color:inherit!important; }
+.organizers-section .partner-placeholders > .partner-logo--zavod:hover { opacity:.86; }
