@@ -1762,3 +1762,27 @@ a.dabro-support-glow {
  .media-section .media-team-card .media-team-photo{width:156px!important;min-width:156px!important;max-width:156px!important;height:156px!important;flex:0 0 156px!important;}
  .media-section .media-team-card .media-team-person{align-items:center;}
 }
+
+/* Smooth Lifestyle Media: both representatives within ONE partner card */
+.media-section .smooth-media-combined {display:block!important;padding:30px!important;}
+.media-section .smooth-media-combined .smooth-media-inner {width:100%;min-width:0;}
+.media-section .smooth-media-combined .smooth-media-heading {display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:16px;}
+.media-section .smooth-media-combined .smooth-logo-panel {display:flex;align-items:center;justify-content:center;flex:0 0 235px;width:235px;min-height:85px;padding:15px 20px;background:#f8f4eb;border-radius:14px;box-shadow:0 3px 18px rgba(0,0,0,.14);}
+.media-section .smooth-media-combined .smooth-logo-panel img {display:block;width:100%;max-width:195px;height:58px;object-fit:contain;}
+.media-section .smooth-media-combined .smooth-media-heading h3 {margin:5px 0 0;}
+.media-section .smooth-media-combined .smooth-media-description {margin:0 0 24px;max-width:950px;}
+.media-section .smooth-media-combined .smooth-media-representatives {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;}
+.media-section .smooth-media-combined .smooth-representative {display:flex;align-items:center;gap:18px;min-width:0;padding:16px;background:rgba(255,255,255,.045);border:1px solid rgba(225,189,112,.22);border-radius:18px;}
+.media-section .smooth-media-combined .smooth-representative .media-team-photo {width:150px!important;min-width:150px!important;max-width:150px!important;height:150px!important;flex:0 0 150px!important;}
+.media-section .smooth-media-combined .smooth-representative-details {display:flex;flex-direction:column;gap:8px;min-width:0;}
+.media-section .smooth-media-combined .smooth-representative-details strong {font-size:19px;line-height:1.25;color:#fff5e6;}
+.media-section .smooth-media-combined .smooth-representative-details span {font-size:14px;line-height:1.45;color:#e6d8c7;}
+@media(max-width:950px){.media-section .smooth-media-combined .smooth-media-representatives{grid-template-columns:1fr;}}
+@media(max-width:600px){
+ .media-section .smooth-media-combined{padding:22px 16px!important;}
+ .media-section .smooth-media-combined .smooth-media-heading{flex-direction:column;text-align:center;gap:12px;}
+ .media-section .smooth-media-combined .smooth-logo-panel{flex:initial;width:min(100%,235px);}
+ .media-section .smooth-media-combined .smooth-media-description{text-align:left;}
+ .media-section .smooth-media-combined .smooth-representative{flex-direction:column;text-align:center;gap:12px;}
+ .media-section .smooth-media-combined .smooth-representative .media-team-photo{width:150px!important;min-width:150px!important;max-width:150px!important;height:150px!important;flex:0 0 150px!important;}
+}
