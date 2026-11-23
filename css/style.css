@@ -1861,3 +1861,8 @@ a.dabro-support-glow {
 .guests-section .guests-grid .guest-photo img {width:100%!important;height:100%!important;object-fit:cover!important;}
 @media(max-width:800px){.guests-section .guests-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;max-height:560px!important;}}
 @media(max-width:480px){.guests-section .guests-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;max-height:490px!important;padding:5px!important;} .guests-section .guests-grid .guest-card h3{font-size:14px!important;} .guests-section .guests-grid .guest-description{font-size:12px!important;}}
+
+/* 2026-11-23: Four guests per row on desktop; two on mobile */
+@media (min-width: 801px) {
+ .guests-section .guests-grid {grid-template-columns:repeat(4,minmax(0,1fr))!important;}
+}
