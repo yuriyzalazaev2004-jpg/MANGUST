@@ -59,6 +59,18 @@
  .media-section .smooth-media-combined .smooth-representative-details{align-items:center!important;}
  .media-section .media-logo-panel{width:190px!important;min-width:190px!important;}
 }
+
+/* TV logo above the portrait, without changing the other media cards */
+.media-section .media-tv-card {display:flex!important;align-items:center!important;gap:28px!important;}
+.media-section .media-tv-card .media-tv-visual {display:flex!important;flex:0 0 210px!important;flex-direction:column!important;align-items:center!important;gap:18px!important;min-width:0!important;}
+.media-section .media-tv-card .media-tv-visual .media-logo-panel {width:210px!important;min-width:0!important;}
+.media-section .media-tv-card .media-tv-visual .media-team-photo {flex:none!important;margin:0!important;}
+.media-section .media-tv-card .media-team-info {min-width:0!important;flex:1!important;}
+@media(max-width:600px){
+.media-section .media-tv-card {flex-direction:column!important;align-items:center!important;text-align:center!important;}
+.media-section .media-tv-card .media-tv-visual {flex:0 0 auto!important;width:100%!important;}
+.media-section .media-tv-card .media-team-info {width:100%!important;}
+}
 </style>
 </head>
 <body>
@@ -206,10 +218,13 @@
       <div class="section-head left-head">
         <h2 class="section-title">Медиа</h2>
       </div>
-      <div class="media-team-card">
-        <div class="media-team-photo"><img src="images/guests/inga-pankratova.png" alt="Инга Панкратова — шеф-редактор телеканала «Долгопрудный»" loading="lazy"></div>
+      <div class="media-team-card media-tv-card">
+        <div class="media-tv-visual">
+          <div class="media-logo-panel"><img src="images/partners/dolgoprudny-tv.png" alt="Логотип телеканала «Долгопрудный»" loading="lazy"></div>
+          <div class="media-team-photo"><img src="images/guests/inga-pankratova.png" alt="Инга Панкратова — шеф-редактор телеканала «Долгопрудный»" loading="lazy"></div>
+        </div>
         <div class="media-team-info">
-          <div class="media-team-brand"><div class="media-logo-panel"><img src="images/partners/dolgoprudny-tv.png" alt="Логотип телеканала «Долгопрудный»" loading="lazy"></div><p class="media-team-kicker">Телеканал «Долгопрудный»</p></div>
+          <p class="media-team-kicker">Телеканал «Долгопрудный»</p>
           <h3>Съёмочная группа</h3>
           <div class="media-team-person"><strong>Инга Панкратова</strong><span>Шеф-редактор телеканала «Долгопрудный»</span></div>
           <div class="media-team-person"><strong>Сергей Валюков</strong><span>Оператор телеканала «Долгопрудный»</span></div>
