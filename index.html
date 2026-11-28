@@ -72,6 +72,17 @@
 .media-section .media-tv-card .media-team-info {width:100%!important;}
 }
 </style>
+<style id="team-profile-style">
+#team .team-profile{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);align-items:center;gap:32px;max-width:820px;margin:0 auto;padding:24px;border:1px solid rgba(183,138,69,.28);border-radius:20px;background:var(--surface);box-shadow:0 12px 30px rgba(0,0,0,.06);}
+#team .team-portrait{width:100%;aspect-ratio:3/4;height:auto;position:relative;overflow:hidden;border-radius:14px;}
+#team .team-portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
+#team .team-details{min-width:0;text-align:left;}
+#team .team-details h3{font-family:var(--font-heading);font-size:clamp(25px,3vw,36px);line-height:1.15;margin:0 0 10px;color:var(--text);}
+#team .team-roles{font-size:15px;font-weight:700;color:#a47731;line-height:1.5;margin:0 0 18px;}
+#team .team-event{font-size:16px;font-weight:600;color:var(--text);line-height:1.5;margin:0 0 10px;}
+#team .team-bio{font-size:15px;line-height:1.65;color:var(--muted);margin:0;}
+@media(max-width:600px){#team .team-profile{grid-template-columns:1fr;gap:20px;padding:18px;max-width:400px;}#team .team-portrait{max-width:240px;margin:0 auto;}#team .team-details{text-align:center;}#team .team-roles{font-size:13px;}#team .team-bio{font-size:14px;}}
+</style>
 </head>
 <body>
   <nav class="navbar">
@@ -325,12 +336,15 @@
 
     <section class="artists-section" id="team" aria-labelledby="team-title">
       <div class="section-head left-head"><h2 class="section-title" id="team-title">Команда проекта</h2></div>
-      <div style="display:flex;justify-content:center;">
-        <article class="artist-card" style="width:100%;max-width:320px;min-width:0;">
-          <div class="artist-photo"><img src="images/team/maxim-miller.jpg" alt="Максим Миллер" loading="lazy" onerror="this.style.display='none'"><span class="photo-fallback">ММ</span></div>
-          <h3>Максим Миллер</h3><p>Организатор благотворительных мероприятий, продюсер и волонтёр.</p>
-        </article>
-      </div>
+      <article class="team-profile">
+        <div class="guest-photo team-portrait"><img src="images/team/maxim-miller.jpg" alt="Максим Миллер" loading="lazy" onerror="this.style.display='none'"><span class="photo-fallback">ММ</span></div>
+        <div class="team-details">
+          <h3>Максим Миллер</h3>
+          <p class="team-roles">Организатор · Продюсер · Волонтёр</p>
+          <p class="team-event">Благотворительный музыкальный вечер «ДаБро»</p>
+          <p class="team-bio">Участник команды проекта, объединяющего артистов, волонтёров и общественных деятелей ради благотворительных инициатив и оказания гуманитарной помощи.</p>
+        </div>
+      </article>
     </section>
 
     <section class="organizers-section" id="organizers">
