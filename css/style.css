@@ -1895,3 +1895,20 @@ a.dabro-support-glow {
 @media(max-width:480px){
  .guests-section .guests-grid {height:510px!important;max-height:510px!important;gap:10px!important;padding-right:8px!important;}
 }
+
+
+/* Mobile hall: keep both seat banks inside the scrollable layout. */
+@media (max-width: 760px) {
+  #hall .hall-wrapper { display: block; direction: ltr; }
+  #hall #hallContainer {
+    width: 1400px !important; min-width: 1400px !important;
+    max-width: none !important; margin: 0 !important;
+    transform: none !important; transform-origin: top left !important;
+  }
+  #hall .diagram-row {
+    width: 100%; max-width: none;
+    grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1fr);
+  }
+  #hall .diagram-bank { min-width: 0; flex-wrap: nowrap; }
+  #hall #hallContainer[data-zoomed="1"] { zoom: 1.24; }
+}
